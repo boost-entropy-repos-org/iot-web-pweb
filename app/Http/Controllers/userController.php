@@ -27,11 +27,14 @@ class userController extends Controller {
                 $repeat_password = $_GET["repeat_password"];
 
                 if($password == $repeat_password) {
-                    /*echo "Nombre: " . $datos_registro["username"];
-                    echo "Nacimiento: " . $datos_registro["date"];
-                    echo "Email: " . $datos_registro["email"];
-                    echo "Contraseña: " . $password;*/
 
+                    //CODIGO PARA INSERTAR DATOS EN UN FICHERO
+                    // =================================================
+
+                    /*echo "Nombre: " . $datos_registro["username"];
+                    cho "Nacimiento: " . $datos_registro["date"];
+                    echo "Email: " . $datos_registro["email"];
+                    echo "Contraseña: " . $password;
                     $mi_archivo = fopen("usuarios.txt", "a") or die("No se pudo guardar el usuario");
                     $datos_registro["password"] = md5($password);
 
@@ -39,7 +42,14 @@ class userController extends Controller {
                                                 " Nacimiento: " . $datos_registro["date"] .
                                                 " email: " . $datos_registro["email"] .
                                                 " Contraseña: " . $datos_registro["password"] . "\n");
-                    fclose($mi_archivo);
+                    fclose($mi_archivo);*/
+
+                    // =================================================
+
+
+
+
+
                     return view('procesar_registro', ['usuario' => $datos_registro]);
                 } else {
                     return view('procesar_registro');
