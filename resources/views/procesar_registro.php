@@ -10,11 +10,14 @@
     <h1>Los datos del registro son:</h1>
 
     <?php
+
+    foreach ($usuarios_registrados as $usuario) {
         echo $usuario["username"];
-        if(isset($usuario)) {
-            echo "<p>El nombre del usuario es " . $usuario["username"] . "</p>";
+        if (isset($usuario)) {
+            echo "<p>El nombre del usuario es " . $usuario["name"] . "</p>";
         } else {
             echo "<p>Ha habido un error</p>";
         }
+    }
     ?>
 </body>

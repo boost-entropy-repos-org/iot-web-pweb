@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class userController extends Controller {
@@ -27,36 +28,30 @@ class userController extends Controller {
                 $repeat_password = $_GET["repeat_password"];
 
                 if($password == $repeat_password) {
-
-                    //CODIGO PARA INSERTAR DATOS EN UN FICHERO
-                    // =================================================
-
-                    /*echo "Nombre: " . $datos_registro["username"];
-                    cho "Nacimiento: " . $datos_registro["date"];
-                    echo "Email: " . $datos_registro["email"];
-                    echo "Contraseña: " . $password;
-                    $mi_archivo = fopen("usuarios.txt", "a") or die("No se pudo guardar el usuario");
+                    //Hash contraseña
                     $datos_registro["password"] = md5($password);
 
-                    fwrite($mi_archivo, " Nombre: " . $datos_registro["username"] .
-                                                " Nacimiento: " . $datos_registro["date"] .
-                                                " email: " . $datos_registro["email"] .
-                                                " Contraseña: " . $datos_registro["password"] . "\n");
-                    fclose($mi_archivo);*/
+                    $newUser = new Usuario();
+                    $newUser->name = $datos_registro["username"];
+                    $newUser->email = $datos_registro["email"];
+                    $newUser->password = $password;
+                    $newUser->birthday = $datos_registro["date"];
+                    $newUser->save();
 
-                    // =================================================
+                    $usuarios_registrados = Usuario::all();
 
-
-
-
-
-                    return view('procesar_registro', ['usuario' => $datos_registro]);
+                    return view('procesar_registro', ['usuarios_registrados' => $usuarios_registrados]);
                 } else {
-                    return view('procesar_registro');
+                    return "Ya existe el usuario, use otro nombre nuevo";
                 }
             } else {
                 return view('register');
             }
         //}
+    }
+
+    public function userAlreadyCreated($newUserName) {
+        $checkUser = Usuario::where('name', $newUserName);
+        return (!$checkUser);
     }
 }

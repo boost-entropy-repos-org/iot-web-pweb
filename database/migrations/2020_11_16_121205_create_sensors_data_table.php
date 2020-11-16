@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuariosTable extends Migration
+class CreateSensorsDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('sensors_data', function (Blueprint $table) {
             $table->id();
-            $table->char('name', 50);
-            $table->char('email', 50);
-            $table->char('password', 100);
-            $table->date('birthday');
+            $table->unsignedBigInteger('id_channel');
+            $table->foreign('id_channel')->references('id')->on('channels');
+            $table->float('data');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -31,6 +30,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('sensors_data');
     }
 }

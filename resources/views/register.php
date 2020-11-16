@@ -3,7 +3,7 @@
 
 <div id="contenido">
 
-    <form id="formularioRegistro" name="registroForm" method="get" action="procesar_regitro">
+    <form id="formularioRegistro" name="registroForm" method="get" action="procesar_registro">
         <table class="formularioTabla">
             <tr>
                 <td><label> Nombre </label></td>
