@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use function Symfony\Component\String\s;
 
 class userController extends Controller {
 
@@ -23,26 +24,20 @@ class userController extends Controller {
                 $datos_registro["username"] = $_GET["username"];
                 $datos_registro["date"]  = $_GET["date_birth"];
                 $datos_registro["email"]  = $_GET["email"];
-                $password  = $_GET["password"];
-
+                $datos_registro["password"]  = $_GET["password"];
                 $repeat_password = $_GET["repeat_password"];
 
-                if($password == $repeat_password) {
-                    //Hash contraseña
-                    $datos_registro["password"] = md5($password);
+                if($datos_registro["password"] == $repeat_password) {
 
-                    $newUser = new Usuario();
-                    $newUser->name = $datos_registro["username"];
-                    $newUser->email = $datos_registro["email"];
-                    $newUser->password = $password;
-                    $newUser->birthday = $datos_registro["date"];
-                    $newUser->save();
+                    if ($this->emailAlreadyCreated($_GET["email"])){
+                        return view('register', ['invalid_email' => true]);
 
-                    $usuarios_registrados = Usuario::all();
-
-                    return view('procesar_registro', ['usuarios_registrados' => $usuarios_registrados]);
-                } else {
-                    return "Ya existe el usuario, use otro nombre nuevo";
+                    } else {
+                        $this->insertUser($datos_registro);
+                        session_start();
+                        $_SESSION['username'] = $datos_registro["username"];
+                        return view('index');
+                    }
                 }
             } else {
                 return view('register');
@@ -50,8 +45,16 @@ class userController extends Controller {
         //}
     }
 
-    public function userAlreadyCreated($newUserName) {
-        $checkUser = Usuario::where('name', $newUserName);
-        return (!$checkUser);
+    public function emailAlreadyCreated($newEmail) {
+        return Usuario::where('email', $newEmail)->exists();
+    }
+
+    public function insertUser($userInformation) {
+        $newUser = new Usuario();
+        $newUser->name = $userInformation["username"];
+        $newUser->email = $userInformation["email"];
+        $newUser->password = md5($userInformation["password"]);
+        $newUser->birthday = $userInformation["date"];
+        $newUser->save();
     }
 }
