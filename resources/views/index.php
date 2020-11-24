@@ -17,7 +17,14 @@
                 control del funcionamiento de una máquina en una empresa
             </p>
             <div id="areaBoton">
-                <a href="register.php"><button type="button" class="boton">Empieza ya</button></a>
+                <?php
+                    $usuario = session('username');
+                    if(isset($usuario)) {
+                        echo '<a href="canales"><button type="button" class="boton">Ver canales</button></a>';
+                    } else {
+                        echo '<a href="register"><button type="button" class="boton">Empieza ya</button></a>';
+                    }
+                ?>
             </div>
         </article>
     </section>
