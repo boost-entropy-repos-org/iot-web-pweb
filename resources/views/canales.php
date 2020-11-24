@@ -31,8 +31,10 @@
                             echo '<p>Descripción: ' . $canal->description . '</p>';
                             echo '<a href="#">Enlace a los datos</a>';
                         echo '</div>';
-                    echo '<a href=eliminarCanal/' . $canal->id . '>';
-                    echo '<img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/></a>';
+                        if(isset($userid)) {
+                            echo '<a href=eliminarCanal/' . $canal->id . '>';
+                            echo '<img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/></a>';
+                        }
                     echo '</article>';
                 }
             ?>
