@@ -2,7 +2,6 @@
 <?php include('components/header.php'); ?>
 
 <div id="contenido">
-
     <form id="formularioRegistro" name="registroForm" method="get" action="procesar_registro">
         <table class="formularioTabla">
             <tr>

@@ -2,6 +2,7 @@
 <?php include('components/header.php'); ?>
 
 <div class="contenido">
+    <img src="images/icono-user.svg" class="iconoUsuario">
     <form id="formularioRegistro" method="get" action="procesar_login">
         <table class="formularioTabla">
             <tr>
