@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use function Symfony\Component\String\s;
+use Session;
 
 class userController extends Controller {
 
@@ -34,8 +35,6 @@ class userController extends Controller {
 
                     } else {
                         $this->insertUser($datos_registro);
-                        session_start();
-                        $_SESSION['username'] = $datos_registro["username"];
                         return view('index');
                     }
                 }
@@ -44,6 +43,36 @@ class userController extends Controller {
             }
         //}
     }
+
+    public function cerrarSesion() {
+        session()->flush();
+        return view('index');
+    }
+
+    public function procesarLogin() {
+        if(isset($_GET["email"], $_GET["password"])) {
+            $email = $_GET["email"];
+            $password = md5($_GET["password"]);
+
+            if($this->validateUserLogin($email, $password)) {
+                $usuario = Usuario::where('email',$email)->first();
+                session(['username' => $usuario->name]);
+                session(['id' => $usuario->id]);
+                return view('index');
+            } else {
+                return view('contacto');
+            }
+        }
+    }
+
+    public function validateUserLogin($email, $password) {
+        if($this->emailAlreadyCreated($email)) {
+            return Usuario::where('email', $email)
+                            ->where('password', $password)
+                            ->exists();
+        }
+    }
+
 
     public function emailAlreadyCreated($newEmail) {
         return Usuario::where('email', $newEmail)->exists();

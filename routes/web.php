@@ -32,3 +32,23 @@ Route::get('/registro', [\App\Http\Controllers\userController::class, 'showRegis
 Route::get('/canales', [\App\Http\Controllers\channelController::class, 'showChannelsView']);
 
 Route::get('/procesar_registro', [\App\Http\Controllers\userController::class, 'procesarRegistro']);
+
+Route::get('/procesar_login', [\App\Http\Controllers\userController::class, 'procesarLogin']);
+
+Route::get('/cerrar_sesion', [\App\Http\Controllers\userController::class, 'cerrarSesion']);
+
+Route::get('/añadir_canal', [\App\Http\Controllers\channelController::class, 'añadirCanal']);
+
+Route::get('/eliminarCanal/{id}', [\App\Http\Controllers\channelController::class, 'eliminarCanal']);
+
+Route::get('/channelJSON/{id}', [\App\Http\Controllers\sensorController::class, 'getJSONData']);
+
+
+Route::get('/nuevoCanal', function () {
+    return view('añadirNuevoCanal');
+});
+
+
+
+
+

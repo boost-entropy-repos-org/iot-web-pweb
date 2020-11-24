@@ -4,56 +4,33 @@
 <div class="contenido">
     <main id="pagCanales">
         <section id="listadoCanales">
-            <button type="submit" class="boton">Nuevo canal</button>
+
+            <?php
+                $nombreUser = session('username');
+                if(isset($nombreUser)) {
+                    echo '<a href="nuevoCanal"><button type="submit" class="boton" >Nuevo canal</button></a>';
+                }
+            ?>
+
             <h2 id="tituloListaCanales">Listado de los canales dados de alta por el usuario</h2>
-            <article class="infoCanal">
-                <div class="textoCanal">
-                    <p>Información sobre el canal</p>
-                    <p>Descripción</p>
-                    <p>Fecha</p>
-                    <p>
-                        Enlace URL (habilitar enlace para acceder a la
-                        epresentación gráfica de los datos almacenados)
-                    </p>
-                </div>
-                <img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/>
-            </article>
-            <article class="infoCanal">
-                <div class="textoCanal">
-                    <p>Información sobre el canal</p>
-                    <p>Descripción</p>
-                    <p>Fecha</p>
-                    <p>
-                        Enlace URL (habilitar enlace para acceder a la
-                        epresentación gráfica de los datos almacenados)
-                    </p>
-                </div>
-                <img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/>
-            </article>
-            <article class="infoCanal">
-                <div class="textoCanal">
-                    <p>Información sobre el canal</p>
-                    <p>Descripción</p>
-                    <p>Fecha</p>
-                    <p>
-                        Enlace URL (habilitar enlace para acceder a la
-                        epresentación gráfica de los datos almacenados)
-                    </p>
-                </div>
-                <img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/>
-            </article>
-            <article class="infoCanal">
-                <div class="textoCanal">
-                    <p>Información sobre el canal</p>
-                    <p>Descripción</p>
-                    <p>Fecha</p>
-                    <p>
-                        Enlace URL (habilitar enlace para acceder a la
-                        epresentación gráfica de los datos almacenados)
-                    </p>
-                </div>
-                <img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/>
-            </article>
+
+            <?php
+                $canales = \App\Models\Channel::where('id_user', session('id'))
+                                                ->get();
+                foreach ($canales as $canal) {
+                    echo '<article class="infoCanal">';
+                        echo '<div class="textoCanal">';
+                            echo '<p>Canal: ' . $canal->channel_name . '</p>';
+                            echo '<p>Sensor: ' . $canal->sensor_name . '</p>';
+                            echo '<p>Descripción: ' . $canal->description . '</p>';
+                            echo '<a href="#">Enlace a los datos</a>';
+                        echo '</div>';
+                    echo '<a href=eliminarCanal/' . $canal->id . '>';
+                    echo '<img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/></a>';
+                    echo '</article>';
+                }
+            ?>
+
             <div id="paginasCanales">
                 <a href="#" class="previous round">&#8249;</a>
                 <a href="#">1</a>

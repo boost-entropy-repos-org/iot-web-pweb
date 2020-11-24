@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -23,9 +19,10 @@
 
             <ul id="autenticacion">
                 <?php
-                    if(isset($_SESSION["username"])) {
-                        echo "<li class='listaNavegacion'><a href='#'>" . $_SESSION["username"] . "</a></li>";
-                        echo "<li class='listaNavegacion'><a href='#'>Cerrar Sesión</a></li>";
+                    $nombreUser = session('username');
+                    if(isset($nombreUser)) {
+                        echo "<li class='listaNavegacion'><a href='/'>" . $nombreUser . "</a></li>";
+                        echo "<li class='listaNavegacion'><a href='cerrar_sesion'>Cerrar Sesión</a></li>";
                     } else {
                         echo "<li class='listaNavegacion'><a href='login'>Login</a></li>";
                         echo "<li class='listaNavegacion'><a href='registro'>Registro</a></li>";

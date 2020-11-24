@@ -2,7 +2,7 @@
 <?php include('components/header.php'); ?>
 
 <div class="contenido">
-    <form id="formularioRegistro" method="get" action="">
+    <form id="formularioRegistro" method="get" action="procesar_login">
         <table class="formularioTabla">
             <tr>
                 <td><label> Email </label></td>
@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <td><label> Contraseña </label></td>
-                <td><input type="password" name="password" minlength="8" maxlength="14" pattern="[A-Za-z0-9]+" required/></td>
+                <td><input type="password" name="password" required/></td>
             </tr>
             <tr>
                 <td></td>
