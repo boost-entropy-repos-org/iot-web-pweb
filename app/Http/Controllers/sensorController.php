@@ -9,12 +9,12 @@ class sensorController extends Controller
 {
     public function getJSONData($channelID) {
 
-        for ($i = 0; $i < 20; $i++) {
+        /*for ($i = 0; $i < 20; $i++) {
             $sensor = new sensorData();
             $sensor->id_channel = 15;
             $sensor->data = $i;
             $sensor->save();
-        }
+        }*/
 
         $datosSensor = sensorData::select('created_at','data')
                                     ->where('id_channel', $channelID)
@@ -29,12 +29,12 @@ class sensorController extends Controller
         $data=array();
         $i=0;
         foreach ($datosSensor as $fila) {
-            $data[$i][0] = $fila['Fecha'];
-            $data[$i][1] = floatval($fila['valor']);
+            $data[$i][0] = $fila['created_at'];
+            $data[$i][1] = floatval($fila['data']);
             $i++;
         }
 
         header('Content-type: application/json');
-        echo json_encode($datosSensor);
+        echo json_encode($data);
     }
 }

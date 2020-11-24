@@ -43,10 +43,9 @@ Route::get('/eliminarCanal/{id}', [\App\Http\Controllers\channelController::clas
 
 Route::get('/channelJSON/{id}', [\App\Http\Controllers\sensorController::class, 'getJSONData']);
 
+Route::get('/canales/graficaCanal/{id}', function () { return view('graficaCanal');});
 
-Route::get('/nuevoCanal', function () {
-    return view('añadirNuevoCanal');
-});
+Route::get('/nuevoCanal', function () { return view('añadirNuevoCanal');});
 
 
 
