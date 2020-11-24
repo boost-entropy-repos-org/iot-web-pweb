@@ -15,8 +15,14 @@
             <h2 id="tituloListaCanales">Listado de los canales dados de alta por el usuario</h2>
 
             <?php
-                $canales = \App\Models\Channel::where('id_user', session('id'))
-                                                ->get();
+                $userid = session('id');
+                if(isset($userid)) {
+                    $canales = \App\Models\Channel::where('id_user', session('id'))
+                        ->get();
+                } else {
+                    $canales = \App\Models\Channel::all();
+                }
+
                 foreach ($canales as $canal) {
                     echo '<article class="infoCanal">';
                         echo '<div class="textoCanal">';
