@@ -1,9 +1,23 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="public/js/src/highcharts.js"></script>
+
+<script>
+    function get_num_users() {
+        $('#numUsuarios').load('getNumUsers');
+        setTimeout(get_num_users, 2000);
+    }
+</script>
 
 <aside id="lateral">
     <p>Información sobre los diferentes canales desde la BBDD</p>
     <p>Canales creados, usuarios, etc</p>
+    <span>Número de usuarios creados: </span><div id="numUsuarios">numusers</div>
+
+    <script>
+        get_num_users();
+    </script>
 </aside>
 
 <main id="contenidoInicio">

@@ -29,7 +29,7 @@
                             echo '<p>Canal: ' . $canal->channel_name . '</p>';
                             echo '<p>Sensor: ' . $canal->sensor_name . '</p>';
                             echo '<p>Descripción: ' . $canal->description . '</p>';
-                            echo '<a href="canales/graficaCanal/' . $canal->id  . '">Enlace a los datos</a>';
+                            echo '<a href="/graficaCanal/' . $canal->id  . '">Enlace a los datos</a>';
                         echo '</div>';
                         if(isset($userid)) {
                             echo '<a href=eliminarCanal/' . $canal->id . '>';

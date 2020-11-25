@@ -3,30 +3,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Highcharts Example</title>
+    <title>Datos del sensor</title>
     <style type="text/css">
     </style>
 </head>
 <body>
 
-<script rel="text/javascript" src="js/highcharts/code/highcharts.js"></script>
-<script rel="text/javascript" src="js/highcharts/code/modules/data.js"></script>
-<script rel="text/javascript" src="js/highcharts/code/modules/exporting.js"></script>
-<script rel="text/javascript" src="js/highcharts/code/modules/export-data.js"></script>
+<script type="text/javascript" src="/js/src/highcharts.js"></script>
+<script type="text/javascript" src="/js/src/modules/data.js"></script>
+<script type="text/javascript" src="/js/src/modules/exporting.js"></script>
+<script type="text/javascript" src="/js/src/modules/export-data.js"></script>
 
 <?php
-
-$titulo ="Datos del sensor";
-$serie='Datos';
-
+    $titulo ="Datos del canal " . $id;
+    $serie='Datos';
 ?>
-
 
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 
 <script type="text/javascript">
-    let channelID = <?php echo 21 ?>
+    let channelID = <?php echo $id ?>;
     Highcharts.getJSON(
         '/channelJSON/' + channelID,
         function (data) {
@@ -90,4 +87,5 @@ $serie='Datos';
     );
 </script>
 </body>
+
 </html>

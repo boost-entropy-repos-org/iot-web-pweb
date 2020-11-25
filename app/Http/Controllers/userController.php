@@ -86,4 +86,9 @@ class userController extends Controller {
         $newUser->birthday = $userInformation["date"];
         $newUser->save();
     }
+
+    public function getNumUsers() {
+        $numUsers = count(Usuario::all());
+        return $numUsers;
+    }
 }

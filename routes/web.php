@@ -43,7 +43,11 @@ Route::get('/eliminarCanal/{id}', [\App\Http\Controllers\channelController::clas
 
 Route::get('/channelJSON/{id}', [\App\Http\Controllers\sensorController::class, 'getJSONData']);
 
-Route::get('/canales/graficaCanal/{id}', function () { return view('graficaCanal');});
+Route::get('/getNumUsers', [\App\Http\Controllers\userController::class, 'getNumUsers']);
+
+Route::get('/graficaCanal/{id}', function ($id) {
+    return view('graficaCanal', ['id' => $id]);
+});
 
 Route::get('/nuevoCanal', function () { return view('añadirNuevoCanal');});
 
