@@ -1,91 +1,47 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Datos del sensor</title>
-    <style type="text/css">
-    </style>
-</head>
-<body>
+<!-- CABECERA -->
+<?php include('components/header.php'); ?>
 
-<script type="text/javascript" src="/js/src/highcharts.js"></script>
-<script type="text/javascript" src="/js/src/modules/data.js"></script>
-<script type="text/javascript" src="/js/src/modules/exporting.js"></script>
-<script type="text/javascript" src="/js/src/modules/export-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<div class="chart_container">
+    <canvas id="sensorChart"></canvas>
+</div>
 
-<?php
-    $titulo ="Datos del canal " . $id;
-    $serie='Datos';
-?>
+<script defer>
+    var ctx = document.getElementById('sensorChart').getContext('2d');
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    $.getJSON("http://iot-web-pweb.test/channelJSON/21", function (data) {
+        console.log(data);
 
+        let times = data.map(value => value[0]);
+        let sensorData = data.map(value => value[1]);
 
-<script type="text/javascript">
-    let channelID = <?php echo $id ?>;
-    Highcharts.getJSON(
-        '/channelJSON/' + channelID,
-        function (data) {
-
-            Highcharts.chart('container', {
-                chart: {
-                    zoomType: 'x'
-                },
-                title: {
-                    text: '<?= $titulo; ?>'
-                },
-                subtitle: {
-                    text: document.ontouchstart === undefined ?
-                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-                },
-                xAxis: {
-                    type: 'datetime'
-                },
-                yAxis: {
-                    title: {
-                        text: '<?= $serie; ?>'
-                    }
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions: {
-                    area: {
-                        fillColor: {
-                            linearGradient: {
-                                x1: 0,
-                                y1: 0,
-                                x2: 0,
-                                y2: 1
-                            },
-                            stops: [
-                                [0, Highcharts.getOptions().colors[0]],
-                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                            ]
-                        },
-                        marker: {
-                            radius: 2
-                        },
-                        lineWidth: 1,
-                        states: {
-                            hover: {
-                                lineWidth: 1
-                            }
-                        },
-                        threshold: null
-                    }
-                },
-
-                series: [{
-                    type: 'area',
-                    name: 'Temp',
-                    data: data
+        var config = {
+            type: 'line',
+            data: {
+                labels: times,
+                datasets: [{
+                    label: "Datos del canal",
+                    data: sensorData,
+                    backgroundColor: 'rgba(0, 119, 204, 0.3)'
                 }]
-            });
-        }
-    );
-</script>
-</body>
+            },
+            options: {
+                scales: {
+                    x: [{
+                        ticks: {
+                            display: false
+                        },
+                        type: 'time',
+                        time: {
+                            unit: 'day'
+                        }
+                    }]
+                },
+            }
+        };
 
-</html>
+        var sensorChart = new Chart(ctx, config);
+    });
+</script>
+

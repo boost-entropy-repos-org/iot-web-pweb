@@ -3,12 +3,12 @@
         <head>
             <meta charset="UTF-8">
             <title>Plataforma Web para IOT</title>
-            <link type="text/css" rel="stylesheet" href="styles/styles.css?v=<?php echo time(); ?>">
+            <link type="text/css" rel="stylesheet" href="/styles/styles.css?v=<?php echo time(); ?>">
             <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Nunito+Sans:wght@700&display=swap" rel="stylesheet">
         </head>
     <body>
     <header id="cabeceraPagina">
-        <a href="/"><img id="logo" alt="logo" src="images/logo.svg"></a>
+        <a href="/"><img id="logo" alt="logo" src="/images/logo.svg"></a>
         <nav>
             <ul id="navegacionOpciones">
                 <li class="listaNavegacion"><a href="/">Inicio</a></li>

@@ -1,7 +1,8 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="public/js/src/highcharts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="/scripts/plotSensorData.js"></script>
 
 <script>
     function get_num_users() {
@@ -46,15 +47,23 @@
     <section id="ultimosCanales">
         <h2>Últimos canales</h2>
         <div id="graficas">
-            <article class="infoGraficaCanal">
-                <img id="grafica1" src="images/graficaEjemplo.png"/>
-            </article>
-            <article class="infoGraficaCanal">
-                <img id="grafica2" src="images/graficaEjemplo.png"/>
-            </article>
+            <div class="infoGraficaCanal">
+                <canvas id="sensorChart2"></canvas>
+                <script>
+                    plotSensorData("sensorChart2", 12);
+                </script>
+            </div>
+            <div class="infoGraficaCanal">
+                <canvas id="sensorGrafica"></canvas>
+                <script>
+                    plotSensorData("sensorGrafica", 21);
+                </script>
+            </div>
         </div>
     </section>
 </main>
+
+
 
 <!-- PIE DE PÁGINA -->
 <?php include('components/footer.php'); ?>

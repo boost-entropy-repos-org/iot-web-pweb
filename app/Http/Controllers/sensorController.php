@@ -23,13 +23,13 @@ class sensorController extends Controller
         //Ajustar tiempo
         for ($i = 0; $i < count($datosSensor); $i++) {
             $time = $datosSensor[$i]["created_at"];
-            $datosSensor[$i]["created_at"] = strtotime($time) * 1000;
+            $datosSensor[$i]["created_at"] = strtotime($time);
         }
 
         $data=array();
         $i=0;
         foreach ($datosSensor as $fila) {
-            $data[$i][0] = $fila['created_at'];
+            $data[$i][0] = date("Y-m-d H:i:s", strtotime($datosSensor[$i]["created_at"]));
             $data[$i][1] = floatval($fila['data']);
             $i++;
         }

@@ -47,5 +47,7 @@
 
 <script src="scripts/scriptCheckAge.js" defer></script>
 
+
+
 <!-- PIE DE PÁGINA -->
 <?php include('components/footer.php'); ?>
