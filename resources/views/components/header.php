@@ -12,9 +12,9 @@
         <nav>
             <ul id="navegacionOpciones">
                 <li class="listaNavegacion"><a href="/">Inicio</a></li>
-                <li class="listaNavegacion"><a href="canales">Canales</a></li>
-                <li class="listaNavegacion"><a href="ayuda">Ayuda</a></li>
-                <li class="listaNavegacion"><a href="contacto">Contacto</a></li>
+                <li class="listaNavegacion"><a href="/canales">Canales</a></li>
+                <li class="listaNavegacion"><a href="/ayuda">Ayuda</a></li>
+                <li class="listaNavegacion"><a href="/contacto">Contacto</a></li>
             </ul>
 
             <ul id="autenticacion">

@@ -25,7 +25,10 @@ Route::get('/contacto', function () {
     return view('contacto');
 });
 
-Route::get('/login', [\App\Http\Controllers\userController::class, 'showLoginView']);
+Route::get('/canales', function () {
+    return view('canales');
+});
+
 
 Route::get('/registro', [\App\Http\Controllers\userController::class, 'showRegisterView']);
 
