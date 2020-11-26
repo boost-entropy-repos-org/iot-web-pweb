@@ -37,4 +37,13 @@ class sensorController extends Controller
         header('Content-type: application/json');
         echo json_encode($data);
     }
+
+    public function generarDatosRand($id) {
+        for ($i = 0; $i < 10; $i++) {
+            $sensor = new sensorData();
+            $sensor->id_channel = $id;
+            $sensor->data = rand(0, 2);
+            $sensor->save();
+        }
+    }
 }

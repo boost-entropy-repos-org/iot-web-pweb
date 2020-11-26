@@ -49,7 +49,9 @@ Route::get('/eliminarCanal/{id}', [\App\Http\Controllers\channelController::clas
 
 Route::get('/channelJSON/{id}', [\App\Http\Controllers\sensorController::class, 'getJSONData']);
 
-Route::get('/getNumUsers', [\App\Http\Controllers\userController::class, 'getNumUsers']);
+Route::get('/channelJSON/{id}', [\App\Http\Controllers\sensorController::class, 'getJSONData']);
+
+Route::get('/generarDatosRand/{id}', [\App\Http\Controllers\sensorController::class, 'generarDatosRand']);
 
 Route::get('/getUltimosCanales', [\App\Http\Controllers\channelController::class, 'getUltimosCanales']);
 
