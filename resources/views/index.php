@@ -50,13 +50,17 @@
             <div class="infoGraficaCanal">
                 <canvas id="sensorChart2"></canvas>
                 <script>
-                    plotSensorData("sensorChart2", 12);
+                    $.get('getUltimosCanales', function (data) {
+                        plotSensorData("sensorChart2", data[0].id);
+                    });
                 </script>
             </div>
             <div class="infoGraficaCanal">
-                <canvas id="sensorGrafica"></canvas>
+                    <canvas id="sensorGrafica"></canvas>
                 <script>
-                    plotSensorData("sensorGrafica", 21);
+                    $.get('getUltimosCanales', function (data) {
+                        plotSensorData("sensorGrafica", data[1].id);
+                    });
                 </script>
             </div>
         </div>

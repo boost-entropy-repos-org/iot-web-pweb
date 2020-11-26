@@ -30,4 +30,12 @@ class channelController extends Controller {
         $canalBorrar->delete();
         return redirect('canales');
     }
+
+    public function getUltimosCanales() {
+        $ultimosCanales = \App\Models\Channel::orderBy('created_at','desc')
+            ->take(2)
+            ->get();
+
+         return $ultimosCanales;
+    }
 }

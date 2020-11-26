@@ -14,7 +14,7 @@ function plotSensorData(chartID, channelID) {
             data: {
                 labels: times,
                 datasets: [{
-                    label: "Datos del canal",
+                    label: "Datos del canal " +  channelID,
                     data: sensorData,
                     backgroundColor: 'rgba(0, 119, 204, 0.3)'
                 }]

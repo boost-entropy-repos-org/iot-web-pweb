@@ -29,6 +29,9 @@ Route::get('/canales', function () {
     return view('canales');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
 
 Route::get('/registro', [\App\Http\Controllers\userController::class, 'showRegisterView']);
 
@@ -47,6 +50,9 @@ Route::get('/eliminarCanal/{id}', [\App\Http\Controllers\channelController::clas
 Route::get('/channelJSON/{id}', [\App\Http\Controllers\sensorController::class, 'getJSONData']);
 
 Route::get('/getNumUsers', [\App\Http\Controllers\userController::class, 'getNumUsers']);
+
+Route::get('/getUltimosCanales', [\App\Http\Controllers\channelController::class, 'getUltimosCanales']);
+
 
 Route::get('/graficaCanal/{id}', function ($id) {
     return view('graficaCanal', ['id' => $id]);
