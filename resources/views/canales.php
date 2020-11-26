@@ -23,13 +23,15 @@
                     $canales = \Illuminate\Support\Facades\DB::table('channels')
                                 ->join('usuarios','channels.id_user', '=', 'usuarios.id')
                                 ->select('channels.*', 'usuarios.name')
-                                ->get();
+                                ->paginate(3);
                 }
 
-                foreach ($canales as $canal) {
+                foreach ($canales->items() as $canal) {
                     echo '<article class="infoCanal">';
                         echo '<div class="textoCanal">';
+                        if(!isset($userid)) {
                             echo '<p><strong>Autor: </strong>' . $canal->name . '</p>';
+                        }
                             echo '<p><strong>Canal: </strong>' . $canal->channel_name . '</p>';
                             echo '<p><strong>Sensor: </strong>' . $canal->sensor_name . '</p>';
                             echo '<p><strong>Descripción: </strong>' . $canal->description . '</p>';
@@ -44,11 +46,8 @@
             ?>
 
             <div id="paginasCanales">
-                <a href="#" class="previous round">&#8249;</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#" class="next round">&#8250;</a>
+                <a href="<?php echo $canales->previousPageUrl()?>" class="previous round">&#8249;</a>
+                <a href="<?php echo $canales->nextPageUrl() ?>" class="next round">&#8250;</a>
             </div>
         </section>
     </main>
