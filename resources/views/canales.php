@@ -20,15 +20,19 @@
                     $canales = \App\Models\Channel::where('id_user', session('id'))
                         ->get();
                 } else {
-                    $canales = \App\Models\Channel::all();
+                    $canales = \Illuminate\Support\Facades\DB::table('channels')
+                                ->join('usuarios','channels.id_user', '=', 'usuarios.id')
+                                ->select('channels.*', 'usuarios.name')
+                                ->get();
                 }
 
                 foreach ($canales as $canal) {
                     echo '<article class="infoCanal">';
                         echo '<div class="textoCanal">';
-                            echo '<p>Canal: ' . $canal->channel_name . '</p>';
-                            echo '<p>Sensor: ' . $canal->sensor_name . '</p>';
-                            echo '<p>Descripción: ' . $canal->description . '</p>';
+                            echo '<p><strong>Autor: </strong>' . $canal->name . '</p>';
+                            echo '<p><strong>Canal: </strong>' . $canal->channel_name . '</p>';
+                            echo '<p><strong>Sensor: </strong>' . $canal->sensor_name . '</p>';
+                            echo '<p><strong>Descripción: </strong>' . $canal->description . '</p>';
                             echo '<a href="/graficaCanal/' . $canal->id  . '">Enlace a los datos</a>';
                         echo '</div>';
                         if(isset($userid)) {
