@@ -9,15 +9,27 @@
         $('#numUsuarios').load('getNumUsers');
         setTimeout(get_num_users, 2000);
     }
+
+    function get_num_channels() {
+        $('#numCanales').load('getNumCanales');
+        setTimeout(get_num_channels, 2000);
+    }
+
+    function get_numSensorData() {
+        $('#numSensorData').load('getNumSensorData');
+        setTimeout(get_numSensorData, 2000);
+    }
 </script>
 
 <aside id="lateral">
-    <p>Información sobre los diferentes canales desde la BBDD</p>
-    <p>Canales creados, usuarios, etc</p>
-    <span>Número de usuarios creados: </span><div id="numUsuarios">numusers</div>
+    <span>Usuarios creados: <div id="numUsuarios">numusers</div></span><br>
+    <span>Canales activos: <div id="numCanales">numCanales</div></span><br>
+    <span>Número de datos recogidos: </span><div id="numSensorData">MBAlmacenados</div><br>
 
     <script>
         get_num_users();
+        get_num_channels();
+        get_numSensorData();
     </script>
 </aside>
 

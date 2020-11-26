@@ -62,6 +62,15 @@ Route::get('/graficaCanal/{id}', function ($id) {
 
 Route::get('/nuevoCanal', function () { return view('añadirNuevoCanal');});
 
+//RUTAS PARA INFORMACIÓN EN AJAX
+
+Route::get('/getNumCanales', [\App\Http\Controllers\channelController::class, 'getNumCanales']);
+
+Route::get('/getNumSensorData', [\App\Http\Controllers\sensorController::class, 'getNumSensorData']);
+
+Route::get('/getNumUsers', [\App\Http\Controllers\userController::class, 'getNumUsers']);
+
+
 
 
 

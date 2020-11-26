@@ -46,4 +46,9 @@ class sensorController extends Controller
             $sensor->save();
         }
     }
+
+    public function getNumSensorData() {
+        $numSensorData = count(sensorData::all());
+        return $numSensorData;
+    }
 }

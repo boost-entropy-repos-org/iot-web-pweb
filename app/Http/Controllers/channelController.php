@@ -38,4 +38,9 @@ class channelController extends Controller {
 
          return $ultimosCanales;
     }
+
+    public function getNumCanales() {
+        $numChannels = count(Channel::all());
+        return $numChannels;
+    }
 }
