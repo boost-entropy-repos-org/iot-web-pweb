@@ -37,7 +37,7 @@
                     if(isset($usuario)) {
                         echo '<a href="canales"><button type="button" class="boton">Ver canales</button></a>';
                     } else {
-                        echo '<a href="register"><button type="button" class="boton">Empieza ya</button></a>';
+                        echo '<a href="registro"><button type="button" class="boton">Empieza ya</button></a>';
                     }
                 ?>
             </div>
