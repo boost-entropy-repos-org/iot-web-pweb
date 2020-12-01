@@ -66,7 +66,7 @@ Route::get('/nuevoCanal', function () { return view('añadirNuevoCanal');});
 
 Route::get('/getNumCanales', [\App\Http\Controllers\channelController::class, 'getNumCanales']);
 
-Route::get('/getNumSensorData', [\App\Http\Controllers\sensorController::class, 'getNumSensorData']);
+Route::get('/getSizeDB', [\App\Http\Controllers\sensorController::class, 'getSizeDB']);
 
 Route::get('/getNumUsers', [\App\Http\Controllers\userController::class, 'getNumUsers']);
 

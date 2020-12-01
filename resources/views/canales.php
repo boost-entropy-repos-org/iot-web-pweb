@@ -18,7 +18,7 @@
                 $userid = session('id');
                 if(isset($userid)) {
                     $canales = \App\Models\Channel::where('id_user', session('id'))
-                        ->get();
+                        ->paginate(3);
                 } else {
                     $canales = \Illuminate\Support\Facades\DB::table('channels')
                                 ->join('usuarios','channels.id_user', '=', 'usuarios.id')

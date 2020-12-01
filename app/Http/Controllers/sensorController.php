@@ -51,4 +51,19 @@ class sensorController extends Controller
         $numSensorData = count(sensorData::all());
         return $numSensorData;
     }
+
+    public function getSizeDB() {
+        $tamañoTablasBD = \Illuminate\Support\Facades\DB::select(
+            "SELECT TABLE_NAME AS `Table`, round(((data_length + index_length) / 1024), 2) AS `sizeKB`
+                                FROM information_schema.TABLES
+                                WHERE TABLE_SCHEMA = \"mywebiot\"
+                                ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC;");
+
+        $tamañoDB = 0;
+        foreach ($tamañoTablasBD as $tamañoTabla) {
+            $tamañoDB += $tamañoTabla->sizeKB;
+        }
+
+        return $tamañoDB;
+    }
 }

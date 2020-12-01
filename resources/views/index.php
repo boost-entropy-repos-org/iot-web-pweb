@@ -15,21 +15,22 @@
         setTimeout(get_num_channels, 2000);
     }
 
-    function get_numSensorData() {
-        $('#numSensorData').load('getNumSensorData');
-        setTimeout(get_numSensorData, 2000);
+    function get_sizeDB() {
+        $('#sizeDB').load('getSizeDB');
+        setTimeout(get_sizeDB, 2000);
     }
+
 </script>
 
 <aside id="lateral">
     <span>Usuarios creados: <div id="numUsuarios">numusers</div></span><br>
     <span>Canales activos: <div id="numCanales">numCanales</div></span><br>
-    <span>Número de datos recogidos: </span><div id="numSensorData">MBAlmacenados</div><br>
+    <span>Tamaño de BBDD en KB: </span><div id="sizeDB">MBAlmacenados</div><br>
 
     <script>
         get_num_users();
         get_num_channels();
-        get_numSensorData();
+        get_sizeDB();
     </script>
 </aside>
 
@@ -55,6 +56,16 @@
             </div>
         </article>
     </section>
+
+    <?php
+        $canales = \Illuminate\Support\Facades\DB::table('channels')
+            ->join('usuarios','channels.id_user', '=', 'usuarios.id')
+            ->select('channels.*', 'usuarios.name')
+            ->orderBy('created_at','desc')
+            ->take(2)
+            ->get();
+
+    ?>
 
     <section id="ultimosCanales">
         <h2>Últimos canales</h2>
