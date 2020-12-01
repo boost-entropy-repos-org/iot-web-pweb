@@ -1,5 +1,5 @@
 
-function plotSensorData(chartID, channelID) {
+function plotSensorData(chartID, channelID, channelName) {
     var ctx = document.getElementById(chartID).getContext('2d');
     let url = "http://iot-web-pweb.test/channelJSON/" + channelID
 
@@ -14,7 +14,7 @@ function plotSensorData(chartID, channelID) {
             data: {
                 labels: times,
                 datasets: [{
-                    label: "Datos del canal " +  channelID,
+                    label: "Datos del canal: " +  channelName,
                     data: sensorData,
                     backgroundColor: 'rgba(0, 119, 204, 0.3)'
                 }]

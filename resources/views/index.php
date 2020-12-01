@@ -57,16 +57,6 @@
         </article>
     </section>
 
-    <?php
-        $canales = \Illuminate\Support\Facades\DB::table('channels')
-            ->join('usuarios','channels.id_user', '=', 'usuarios.id')
-            ->select('channels.*', 'usuarios.name')
-            ->orderBy('created_at','desc')
-            ->take(2)
-            ->get();
-
-    ?>
-
     <section id="ultimosCanales">
         <h2>Últimos canales</h2>
         <div id="graficas">
@@ -74,15 +64,15 @@
                 <canvas id="sensorChart2"></canvas>
                 <script>
                     $.get('getUltimosCanales', function (data) {
-                        plotSensorData("sensorChart2", data[0].id);
+                        plotSensorData("sensorChart2", data[0].id, data[0].channel_name);
                     });
                 </script>
             </div>
             <div class="infoGraficaCanal">
-                    <canvas id="sensorGrafica"></canvas>
+                    <canvas id="sensorChartGrafica"></canvas>
                 <script>
                     $.get('getUltimosCanales', function (data) {
-                        plotSensorData("sensorGrafica", data[1].id);
+                        plotSensorData("sensorChartGrafica", data[1].id, data[1].channel_name);
                     });
                 </script>
             </div>
