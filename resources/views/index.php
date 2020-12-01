@@ -19,7 +19,6 @@
         $('#sizeDB').load('getSizeDB');
         setTimeout(get_sizeDB, 2000);
     }
-
 </script>
 
 <aside id="lateral">

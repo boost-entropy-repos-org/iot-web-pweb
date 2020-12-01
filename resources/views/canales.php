@@ -26,24 +26,24 @@
                                 ->paginate(3);
                 }
 
-                foreach ($canales->items() as $canal) {
-                    echo '<article class="infoCanal">';
-                        echo '<div class="textoCanal">';
-                        if(!isset($userid)) {
-                            echo '<p><strong>Autor: </strong>' . $canal->name . '</p>';
-                        }
-                            echo '<p><strong>Canal: </strong>' . $canal->channel_name . '</p>';
-                            echo '<p><strong>Sensor: </strong>' . $canal->sensor_name . '</p>';
-                            echo '<p><strong>Descripción: </strong>' . $canal->description . '</p>';
-                            echo '<a href="/graficaCanal/' . $canal->id  . '">Enlace a los datos</a>';
-                        echo '</div>';
-                        if(isset($userid)) {
-                            echo '<a href=eliminarCanal/' . $canal->id . '>';
-                            echo '<img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/></a>';
-                        }
-                    echo '</article>';
-                }
-            ?>
+                foreach ($canales->items() as $canal) : ?>
+                    <article class="infoCanal">
+                        <div class="textoCanal">
+                        <?php if(!isset($userid)): ?>
+                            <p><strong>Autor: </strong> <?php echo $canal->name ?> </p>
+                        <?php endif; ?>
+                            <p><strong>Canal: </strong> <?php echo $canal->channel_name ?> </p>
+                            <p><strong>Sensor: </strong> <?php $canal->sensor_name ?> </p>
+                            <p><strong>Descripción: </strong> <?php $canal->description ?></p>
+                            <a href="/graficaCanal/' . $canal->id  . '">Enlace a los datos</a>
+                        </div>
+                        <?php if(isset($userid)): ?>
+                            <a href="eliminarCanal/<?php echo $canal->id; ?>">
+                            <img src="images/icono-borrar.svg" alt="Borrar canal" class="iconoBorrar"/></a>
+                        <?php endif;?>
+                    </article>
+                <?php endforeach; ?>
+
 
             <div id="paginasCanales">
                 <a href="<?php echo $canales->previousPageUrl()?>" class="previous round">&#8249;</a>
