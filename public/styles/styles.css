@@ -281,11 +281,11 @@ td input {
     color: black;
 }
 
-chart_container {
+.chart_container {
+    margin: 0 auto;
     position: relative;
-    margin: auto;
-    height: 30vh;
-    width: 30vw;
+    height: auto;
+    width: 80%;
 }
 
 .canal {
