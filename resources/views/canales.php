@@ -35,7 +35,7 @@
                             <p><strong>Canal: </strong> <?php echo $canal->channel_name ?> </p>
                             <p><strong>Sensor: </strong> <?php $canal->sensor_name ?> </p>
                             <p><strong>Descripción: </strong> <?php $canal->description ?></p>
-                            <a href="/graficaCanal/' . $canal->id  . '">Enlace a los datos</a>
+                            <a href="/graficaCanal/<?php echo $canal->id?> ">Enlace a los datos</a>
                         </div>
                         <?php if(isset($userid)): ?>
                             <a href="eliminarCanal/<?php echo $canal->id; ?>">

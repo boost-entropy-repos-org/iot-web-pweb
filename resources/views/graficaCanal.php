@@ -8,6 +8,7 @@
     <?php
         $canal = \App\Models\Channel::where('id', $id)
             ->first();
+
         $usuario = \App\Models\Usuario::where('id', $canal->id_user)
             ->first();
     ?>
