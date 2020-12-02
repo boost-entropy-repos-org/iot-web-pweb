@@ -33,9 +33,9 @@
                             <p><strong>Autor: </strong> <?php echo $canal->name ?> </p>
                         <?php endif; ?>
                             <p><strong>Canal: </strong> <?php echo $canal->channel_name ?> </p>
-                            <p><strong>Sensor: </strong> <?php $canal->sensor_name ?> </p>
-                            <p><strong>Descripción: </strong> <?php $canal->description ?></p>
-                            <a href="/graficaCanal/<?php echo $canal->id?> ">Enlace a los datos</a>
+                            <p><strong>Sensor: </strong> <?php echo $canal->sensor_name ?> </p>
+                            <p><strong>Descripción: </strong> <?php echo $canal->description ?></p>
+                            <a href="/graficaCanal/<?php echo $canal->id ?> ">Enlace a los datos</a>
                         </div>
                         <?php if(isset($userid)): ?>
                             <a href="eliminarCanal/<?php echo $canal->id; ?>">
