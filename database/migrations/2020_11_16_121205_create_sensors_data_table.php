@@ -16,7 +16,7 @@ class CreateSensorsDataTable extends Migration
         Schema::create('sensors_data', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_channel');
-            $table->foreign('id_channel')->references('id')->on('channels');
+            $table->foreign('id_channel')->references('id')->on('channels')->onDelete("cascade");
             $table->float('data');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
