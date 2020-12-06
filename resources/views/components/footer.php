@@ -1,6 +1,6 @@
 <footer id="piePagina">
-            <p>Rubén Delgado González</p>
-            <p>Copyright &copy; 2020</p>
+            <p>Rubén DG</p>
+            <a href="https://github.com/rrenub/iot-web-pweb"><p><i class="fa fa-github"></i> Github</p></a>
 </footer>
 </body>
 </html>

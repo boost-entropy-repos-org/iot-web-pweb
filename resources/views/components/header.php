@@ -4,6 +4,7 @@
             <meta charset="UTF-8">
             <title>⚙️ MyWebIOT</title>
             <link type="text/css" rel="stylesheet" href="/styles/styles.css?v=<?php echo time(); ?>">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Nunito+Sans:wght@700&display=swap" rel="stylesheet">
         </head>
     <body>
