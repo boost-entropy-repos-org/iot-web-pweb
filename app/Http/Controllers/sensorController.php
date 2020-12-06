@@ -42,7 +42,7 @@ class sensorController extends Controller
         for ($i = 0; $i < 10; $i++) {
             $sensor = new sensorData();
             $sensor->id_channel = $id;
-            $sensor->data = rand(0, 2);
+            $sensor->data = rand(0, 10);
             $sensor->save();
         }
     }

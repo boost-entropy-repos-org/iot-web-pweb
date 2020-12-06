@@ -1,4 +1,4 @@
-## Plataforma web de IoT: MyWebIOT
+# Plataforma web de IoT: MyWebIOT
 
 <p align="center" width="500" height="auto">
   <img src="https://i.imgur.com/56t35iv.png">
