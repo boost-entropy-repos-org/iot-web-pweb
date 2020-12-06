@@ -2,7 +2,7 @@
         <html lang="en">
         <head>
             <meta charset="UTF-8">
-            <title>Plataforma Web para IOT</title>
+            <title>⚙️ MyWebIOT</title>
             <link type="text/css" rel="stylesheet" href="/styles/styles.css?v=<?php echo time(); ?>">
             <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Nunito+Sans:wght@700&display=swap" rel="stylesheet">
         </head>

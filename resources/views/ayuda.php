@@ -4,10 +4,25 @@
 <div class="contenidoAyuda">
     <main>
         <section id="infoAyuda">
-            <h1>¿Necesitas ayuda?</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-            </p>
+            <h1>Ayuda de MyWebIOT 🔧</h1>
+            <article>
+                <h2>Servicio web para recoger datos de un canal entre dos fechas determinadas</h2>
+                <p>
+                    Se ha implementado un servicio web que devuelve los datos del sensor de un canal entre dos fechas determinadas.
+                    Para ello, conociendo el id del canal y con dos fechas en formato YY:MM:DD, se obtiene un JSON con los datos
+                    de dicho sensor. El formato del URL para usar este servicio es el siguiente:
+                </p>
+                <code>
+                    http://iot-web-pweb.test/getSensorDataBetweenDates?channel={<strong>id</strong>}&date1={<strong>fechaInicio</strong>}&date2={<strong>fechaFinal</strong>}
+                </code>
+                <br>
+                <p>Los campos que se encuentran entre llaves (id, fechainicio, fechafinal) se deben rellenar con los datos de ejemplo</p>
+                <h3>Ejemplo</h3>
+                <p>Con el siguiente enlace se puede acceder a los datos del sensor del canal 12, entre los días 2020-11-24 al 2020-11-25:</p>
+                <a href="http://iot-web-pweb.test/getSensorDataBetweenDates?channel=12&date1=2020-11-24&date2=2020-11-25">
+                    http://iot-web-pweb.test/getSensorDataBetweenDates?channel=12&date1=2020-11-24&date2=2020-11-25
+                </a>
+            </article>
         </section>
     </main>
 </div>

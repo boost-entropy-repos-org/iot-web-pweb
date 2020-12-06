@@ -55,6 +55,9 @@ Route::get('/generarDatosRand/{id}', [\App\Http\Controllers\sensorController::cl
 
 Route::get('/getUltimosCanales', [\App\Http\Controllers\channelController::class, 'getUltimosCanales']);
 
+Route::get('/getSensorDataBetweenDates', [\App\Http\Controllers\channelController::class, 'getSensorDataBetweenDates']);
+
+
 
 Route::get('/graficaCanal/{id}', function ($id) {
     return view('graficaCanal', ['id' => $id]);
