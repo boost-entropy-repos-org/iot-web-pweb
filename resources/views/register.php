@@ -2,7 +2,8 @@
 <?php include('components/header.php'); ?>
 
 <div id="contenido">
-    <form id="formularioRegistro" name="registroForm" method="get" action="procesar_registro">
+    <form id="formularioRegistro" name="registroForm" method="post" action="procesar_registro">
+        <?= csrf_field() ?>
         <table class="formularioTabla">
             <tr>
                 <td><label> Nombre </label></td>

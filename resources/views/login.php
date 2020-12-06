@@ -3,7 +3,8 @@
 
 <div class="contenido">
     <img src="images/icono-user.svg" class="iconoUsuario">
-    <form id="formularioRegistro" method="get" action="procesar_login">
+    <form id="formularioRegistro" method="post" action="procesar_login">
+        <?= csrf_field() ?>
         <table class="formularioTabla">
             <tr>
                 <td><label> Email </label></td>

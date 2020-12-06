@@ -19,18 +19,18 @@ class userController extends Controller {
 
     public function procesarRegistro() {
         //if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            if (isset($_GET["username"], $_GET["date_birth"], $_GET["email"], $_GET["password"], $_GET["repeat_password"])) {
+            if (isset($_POST["username"], $_POST["date_birth"], $_POST["email"], $_POST["password"], $_POST["repeat_password"])) {
 
                 $datos_registro = array([]);
-                $datos_registro["username"] = $_GET["username"];
-                $datos_registro["date"]  = $_GET["date_birth"];
-                $datos_registro["email"]  = $_GET["email"];
-                $datos_registro["password"]  = $_GET["password"];
-                $repeat_password = $_GET["repeat_password"];
+                $datos_registro["username"] = $_POST["username"];
+                $datos_registro["date"]  = $_POST["date_birth"];
+                $datos_registro["email"]  = $_POST["email"];
+                $datos_registro["password"]  = $_POST["password"];
+                $repeat_password = $_POST["repeat_password"];
 
                 if($datos_registro["password"] == $repeat_password) {
 
-                    if ($this->emailAlreadyCreated($_GET["email"])){
+                    if ($this->emailAlreadyCreated($_POST["email"])){
                         return view('register', ['invalid_email' => true]);
 
                     } else {
@@ -50,9 +50,9 @@ class userController extends Controller {
     }
 
     public function procesarLogin() {
-        if(isset($_GET["email"], $_GET["password"])) {
-            $email = $_GET["email"];
-            $password = md5($_GET["password"]);
+        if(isset($_POST["email"], $_POST["password"])) {
+            $email = $_POST["email"];
+            $password = md5($_POST["password"]);
 
             if($this->validateUserLogin($email, $password)) {
                 $usuario = Usuario::where('email',$email)->first();

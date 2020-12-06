@@ -37,9 +37,9 @@ Route::get('/registro', [\App\Http\Controllers\userController::class, 'showRegis
 
 Route::get('/canales', [\App\Http\Controllers\channelController::class, 'showChannelsView']);
 
-Route::get('/procesar_registro', [\App\Http\Controllers\userController::class, 'procesarRegistro']);
+Route::post('/procesar_registro', [\App\Http\Controllers\userController::class, 'procesarRegistro']);
 
-Route::get('/procesar_login', [\App\Http\Controllers\userController::class, 'procesarLogin']);
+Route::post('/procesar_login', [\App\Http\Controllers\userController::class, 'procesarLogin']);
 
 Route::get('/cerrar_sesion', [\App\Http\Controllers\userController::class, 'cerrarSesion']);
 
