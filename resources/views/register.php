@@ -2,7 +2,7 @@
 <?php include('components/header.php'); ?>
 
 <div id="contenido">
-    <form id="formularioRegistro" name="registroForm" method="post" action="procesar_registro">
+    <form id="formularioRegistro" name="registroForm" onsubmit="return checkAge()" method="post" action="procesar_registro">
         <?= csrf_field() ?>
         <table class="formularioTabla">
             <tr>
@@ -46,8 +46,7 @@
     </form>
 </div>
 
-<script src="scripts/scriptCheckAge.js" defer></script>
-
+<script src="scripts/validateRegister.js" defer></script>
 
 
 <!-- PIE DE PÁGINA -->
