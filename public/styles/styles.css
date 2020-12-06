@@ -132,6 +132,10 @@ h1 {
     justify-content: space-evenly;
 }
 
+#coordenadas-grafica td{
+    text-align: left;
+}
+
 footer {
     position: absolute;
     bottom: 0;

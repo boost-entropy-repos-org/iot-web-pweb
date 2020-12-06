@@ -14,9 +14,22 @@
     ?>
 
     <h1><?php echo $canal->channel_name ?></h1>
+    <p><strong>Autor: </strong><?php echo $usuario->name?></p>
+    <p><strong>ID del canal: </strong> <?php echo $canal->id ?> </p>
     <p><strong>Descripción: </strong><?php echo $canal->description?></p>
     <p><strong>Sensor: </strong><?php echo $canal->sensor_name?></p>
-    <p><strong>Autor: </strong><?php echo $usuario->name?></p>
+    <table id="coordenadas-grafica">
+        <tr>
+            <td><strong>Latitud</strong></td>
+            <td><?php echo $canal->latitude ?></td>
+        </tr>
+        <tr>
+            <td><strong>Longitud</strong></td>
+            <td><?php echo $canal->longitude ?></td>
+        </tr>
+    </table>
+
+
 
 
 </div>
