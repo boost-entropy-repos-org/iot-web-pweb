@@ -46,7 +46,7 @@ class userController extends Controller {
 
     public function cerrarSesion() {
         session()->flush();
-        return view('index');
+        return redirect('/');
     }
 
     public function procesarLogin() {
@@ -58,9 +58,7 @@ class userController extends Controller {
                 $usuario = Usuario::where('email',$email)->first();
                 session(['username' => $usuario->name]);
                 session(['id' => $usuario->id]);
-                return view('index');
-            } else {
-                return view('contacto');
+                return redirect('/');
             }
         }
     }

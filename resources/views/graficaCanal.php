@@ -13,6 +13,8 @@
             ->first();
     ?>
 
+
+
     <h1><?php echo $canal->channel_name ?></h1>
     <p><strong>Autor: </strong><?php echo $usuario->name?></p>
     <p><strong>ID del canal: </strong> <?php echo $canal->id ?> </p>
@@ -28,10 +30,6 @@
             <td><?php echo $canal->longitude ?></td>
         </tr>
     </table>
-
-
-
-
 </div>
 
 <div class="chart_container">

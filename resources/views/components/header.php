@@ -23,10 +23,10 @@
                     $nombreUser = session('username');
                     if(isset($nombreUser)) {
                         echo "<li class='listaNavegacion'><a href='/'>" . $nombreUser . "</a></li>";
-                        echo "<li class='listaNavegacion'><a href='cerrar_sesion'>Cerrar Sesión</a></li>";
+                        echo "<li class='listaNavegacion'><a href='/cerrar_sesion'>Cerrar Sesión</a></li>";
                     } else {
-                        echo "<li class='listaNavegacion'><a href='login'>Login</a></li>";
-                        echo "<li class='listaNavegacion'><a href='registro'>Registro</a></li>";
+                        echo "<li class='listaNavegacion'><a href='/login'>Login</a></li>";
+                        echo "<li class='listaNavegacion'><a href='/registro'>Registro</a></li>";
                     }
                 ?>
             </ul>
