@@ -35,6 +35,7 @@ class userController extends Controller {
 
                     } else {
                         $this->insertUser($datos_registro);
+                        $this->loginUser($datos_registro["email"]);
                         return view('index');
                     }
                 }
@@ -55,12 +56,16 @@ class userController extends Controller {
             $password = md5($_POST["password"]);
 
             if($this->validateUserLogin($email, $password)) {
-                $usuario = Usuario::where('email',$email)->first();
-                session(['username' => $usuario->name]);
-                session(['id' => $usuario->id]);
-                return redirect('/');
+                loginUser($email);
+                return view("index");
             }
         }
+    }
+
+    public function loginUser($email) {
+        $usuario = Usuario::where('email',$email)->first();
+        session(['username' => $usuario->name]);
+        session(['id' => $usuario->id]);
     }
 
     public function validateUserLogin($email, $password) {
