@@ -1,6 +1,6 @@
 ## Plataforma web de IoT: MyWebIOT
 
-<p align="center">
+<p align="center" width="500" height="auto">
   <img src="https://i.imgur.com/56t35iv.png">
 </p>
 
@@ -10,8 +10,15 @@ MyWebIOT is a web application for retrieving and watching data of IOT devices ma
 
 ## 💡 Features
 
-Any user can see the data received from the registered sensors and can register at least their own sensors for measuring temperature, humidity... 
+Any user can see the data received from the registered sensors and can register their own sensors for measuring temperature, humidity... For that, they need to be registered and logged in.
+
+<p display="block" align="center" width="500" height="auto">
+  <img src="https://i.imgur.com/8FzHrfd.png">
+</p>
 
 The data collected by the sensors will be sent periodically to the web server, which will be stored in a database, and can be viewed graphically on the website (using chart.js for plotting data).
 
+<p align="center" width="500" height="auto">
+  <img src="https://i.imgur.com/usLFRmA.png">
+</p>
 
