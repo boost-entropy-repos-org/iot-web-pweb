@@ -146,6 +146,10 @@ footer {
     justify-content: space-between;
 }
 
+#github-footer {
+    line-height: 0;
+}
+
 #piePagina p {
     font-size: medium;
     color: white;
