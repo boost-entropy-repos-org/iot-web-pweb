@@ -1,7 +1,7 @@
 # IoT Web platform: MyWebIOT
 
 <p align="center" width="500" height="auto">
-  <img src="https://i.imgur.com/56t35iv.png">
+  <img src="https://i.imgur.com/iGAPZ1j.png">
 </p>
 
 ## 💻 About the app
