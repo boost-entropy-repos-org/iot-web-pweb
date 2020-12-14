@@ -73,6 +73,12 @@ Route::get('/getSizeDB', [\App\Http\Controllers\sensorController::class, 'getSiz
 
 Route::get('/getNumUsers', [\App\Http\Controllers\userController::class, 'getNumUsers']);
 
+//TIENDA
+
+Route::get('/tienda', function () {
+    return view('tienda');
+});
+
 
 
 
