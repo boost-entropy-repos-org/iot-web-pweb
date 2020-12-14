@@ -76,7 +76,10 @@ Route::get('/getNumUsers', [\App\Http\Controllers\userController::class, 'getNum
 //TIENDA
 
 Route::get('/tienda', function () {
-    return view('tienda');
+    if(session('username') == 'admin')
+        return view('shopBackend');
+    else
+        return view('tienda');
 });
 
 

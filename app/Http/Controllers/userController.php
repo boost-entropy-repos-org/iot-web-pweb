@@ -56,7 +56,7 @@ class userController extends Controller {
             $password = md5($_POST["password"]);
 
             if($this->validateUserLogin($email, $password)) {
-                loginUser($email);
+                $this->loginUser($email);
                 return view("index");
             }
         }

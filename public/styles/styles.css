@@ -273,6 +273,7 @@ code {
 }
 
 #paginasCanales {
+    margin-top: 2em;
     margin-bottom: 6em;
     display: flex;
     justify-content: center;
@@ -317,6 +318,78 @@ code {
     margin: 2em 2em 2em 4em;
     padding: 0.3em 2em
 }
+
+
+/* TIENDA */
+
+#contenidoTienda {
+    margin: 2em 4em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.infoTienda {
+    padding: 0 2em;
+    border-left: 0.5em solid #1f6f8b;
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.contenedor-carrito {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.lista-productos {
+    display: flex;
+    flex-direction: row;
+}
+
+.detalle-producto {
+    margin: 0 0.5em;
+    width: 12em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 0.2em 1em 0.5em 1em;
+}
+
+.detalle-producto button {
+    margin: 0 auto;
+}
+
+.detalle-producto img {
+    width: 10em;
+    height: auto;
+}
+
+.contenedor-productos {
+    margin: 4em auto;
+    grid-row: 2 / 4;
+    grid-column: 1 / 4;
+}
+
+.contenedor-carrito {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.contenedor-carrito img {
+    width: 3em;
+    height: auto;
+}
+
+.contenedor-carrito span {
+    background-color: #ffca28;
+    padding: 1em;
+    border-radius: 40%;
+    margin: 2em;
+}
+
+
+
 
 
 
