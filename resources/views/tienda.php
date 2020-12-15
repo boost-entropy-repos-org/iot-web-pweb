@@ -34,10 +34,10 @@
                             <div class="price">€29</div>
                         </div>
                         <div class="features">
-                            <ul>
-                                <li><img class="imagenProducto" src="images/arduino.png" width="200" height="auto"></li>
-                                <li>Sensor de temperatura Premium</li>
-                            </ul>
+                              <img class="imagenProducto" src="images/arduino.png" width="200" height="auto">
+                            <div class="descripcion-producto">
+                                Microcontrolador para monitorizar temperatura. Perfecto para iniciados y prototipado
+                            </div>
                         </div>
                         <div class="signup">
                             <a href="#">Añadir al carro</a>

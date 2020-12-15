@@ -407,7 +407,6 @@ code {
     width: 100%;
     display: flex;
     justify-content: center;
-
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
@@ -500,6 +499,14 @@ code {
 .botonCheckout img {
     width: 30px;
     height: auto;
+}
+
+.descripcion-producto {
+    margin-top: 1em;
+    padding: 0 1.5em;
+    letter-spacing: 2px;
+    font-size: small;
+    text-align: center;
 }
 
 

@@ -14,6 +14,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->double('price');
+            $table->double('stock');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
