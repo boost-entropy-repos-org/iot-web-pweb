@@ -5,27 +5,45 @@
 
         <div class="infoTienda">
             <h1>Tienda</h1>
-            <p>Bienvenido a la tienda de MyWebIOT</p>
+            <p>
+                Bienvenido a la tienda de <strong>MyWebIOT</strong>. Ofrecemos todo tipo de sistemas embebidos de diferentes marcas (Arduino, STM, ESP, etc)
+                y sensores para medir temperatura, viento, etc.
+                <br><br>
+                El método de pago usado es PayPal.
+            </p>
         </div>
 
         <div class="contenedor-carrito">
-            <img src="images/carrito.svg">
-            <span id="elementos-carrito"><strong>4</strong></span>
-            <a href="carrito"><button class="boton">Checkout</button></a>
+            <div id="carrito">
+                <img src="images/carrito.svg">
+                <span id="elementos-carrito"><strong>4</strong></span>
+            </div>
+            <a href="carrito"><button class="botonCheckout">
+                    <img src="images/paypal.svg">
+                    <span>Checkout</span>
+                </button></a>
         </div>
 
     <div class="contenedor-productos">
         <div class="lista-productos">
             <?php for($i = 0; $i < 5; $i++): ?>
-            <article class="detalle-producto">
-                <h2>Producto X</h2>
-                <img src="images/tienda-sensor.jpg">
-                <p>Descripción del producto</p>
-                <h3>23€</h3>
-                <form method="get" action="tienda">
-                    <button type="submit" class="boton">Add to cart</button>
-                </form>
-            </article>
+                <div id="pricing-tables">
+                    <div class="pricing-table">
+                        <div class="header">
+                            <div class="title">Sensor temperatura</div>
+                            <div class="price">€29</div>
+                        </div>
+                        <div class="features">
+                            <ul>
+                                <li><img class="imagenProducto" src="images/arduino.png" width="200" height="auto"></li>
+                                <li>Sensor de temperatura Premium</li>
+                            </ul>
+                        </div>
+                        <div class="signup">
+                            <a href="#">Añadir al carro</a>
+                        </div>
+                    </div>
+                </div>
             <?php endfor; ?>
         </div>
         <div id="paginasCanales">
