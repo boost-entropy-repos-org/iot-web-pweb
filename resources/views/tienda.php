@@ -30,7 +30,7 @@
                 <div id="pricing-tables">
                     <div class="pricing-table">
                         <div class="header">
-                            <div class="title">Sensor temperatura</div>
+                            <div class="title">Arduino UNO</div>
                             <div class="price">€29</div>
                         </div>
                         <div class="features">
