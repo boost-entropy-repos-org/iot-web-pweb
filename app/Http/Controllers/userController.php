@@ -57,7 +57,9 @@ class userController extends Controller {
 
             if($this->validateUserLogin($email, $password)) {
                 $this->loginUser($email);
-                return view("index");
+                return redirect('/');
+            } else {
+                return redirect('login');
             }
         }
     }
