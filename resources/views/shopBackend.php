@@ -12,23 +12,28 @@
                 <tr>
                     <th>ID</th>
                     <th>Producto</th>
-                    <th>Descripción</th>
                     <th>Precio</th>
                     <th>Cantidad en stock</th>
+                    <th>Consultar</th>
                     <th>Eliminar</th>
                     <th>Modificar</th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php
+                    $products = \App\Models\Product::all();
+                    foreach ($products as $product):
+                ?>
                 <tr>
-                    <td>Content 1</td>
-                    <td>Content 1</td>
-                    <td>Content 1</td>
-                    <td>Content 1</td>
-                    <td>Content 1</td>
-                    <td><img src="images/icono-borrar.svg"></td>
-                    <td><img src="images/create-24px.svg"></td>
+                    <td><?php echo $product->id ?></td>
+                    <td><?php echo $product->name ?></td>
+                    <td><?php echo $product->price ?></td>
+                    <td><?php echo $product->stock ?></td>
+                    <td><img class="iconosCRUDProducto" src="images/article-24px.svg"></td>
+                    <td><img class="iconosCRUDProducto" src="images/icono-borrar.svg"></td>
+                    <td><img class="iconosCRUDProducto" src="images/create-24px.svg"></td>
                 </tr>
+                <?php endforeach; ?>
                 <tbody>
             </table>
         </div>
@@ -48,12 +53,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                    </tr>
+                    <?php
+                        $orders = \Illuminate\Support\Facades\DB::table('orders')
+                                            ->join('usuarios','orders.id_client','=','usuarios.id')
+                                            ->select('orders.*', 'usuarios.name')
+                                            ->get();
+                        foreach ($orders as $order):
+                    ?>
+                        <tr>
+                            <td><?php echo $order->id ?></td>
+                            <td><?php echo $order->name ?></td>
+                            <td><?php echo $order->total ?></td>
+                            <td><?php echo $order->status ?></td>
+                        </tr>
+                        <?php endforeach; ?>
                     <tbody>
                 </table>
             </div>
@@ -64,23 +77,30 @@
                 <table class="fl-table">
                     <thead>
                     <tr>
-                        <th>ID de transacción</th>
-                        <th>ID de orden</th>
+                        <th>ID transacción</th>
+                        <th>ID orden</th>
                         <th>Cliente</th>
                         <th>Total</th>
-                        <th>Estado</th>
                         <th>Fecha del pago</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                        $transactions = \Illuminate\Support\Facades\DB::table('transactions')
+                            ->join('usuarios','transactions.id_client','=','usuarios.id')
+                            ->select('transactions.*', 'usuarios.name')
+                            ->get();
+
+                        foreach ($transactions as $transaction):
+                    ?>
                     <tr>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
+                        <td><?php echo $transaction->id ?></td>
+                        <td><?php echo $transaction->id_order ?></td>
+                        <td><?php echo $transaction->name ?></td>
+                        <td><?php echo $transaction->total ?></td>
+                        <td><?php echo $transaction->created_at ?></td>
                     </tr>
+                        <?php endforeach; ?>
                     <tbody>
                 </table>
             </div>

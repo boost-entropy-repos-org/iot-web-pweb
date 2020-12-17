@@ -552,10 +552,11 @@ code {
 
 .fl-table td {
     border-right: 1px solid #f8f8f8;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .fl-table thead th {
+    font-size: 15px;
     color: #ffffff;
     background: #324960;
 }
@@ -581,6 +582,18 @@ code {
     margin-right: 2em;
 }
 
+.iconosCRUDProducto {
+    /* transition */
+    width: 25px;
+    height: auto;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.iconosCRUDProducto:hover {
+    width: 30px;
+}
 
 
 
