@@ -357,19 +357,23 @@ code {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    margin-top: -1em;
 }
 
 .pricing-table {
     max-width: 300px;
+    height: 28em;
     width: 100%;
+    height: fit-content;
     margin: 5px 1em;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
 }
 
 .imagenProducto {
     width: 200px;
     height: auto;
-    padding: 0 0.5em 0.5em 1em;
+    padding: 1em 0.5em;
 
 }
 
@@ -402,8 +406,11 @@ code {
 }
 
 .signup {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     background: #fff;
-    padding: 2px 0 25px 0;
+    padding: 2px 0 5px 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -412,9 +419,14 @@ code {
     transition: all 0.4s;
 }
 
+#masInfoProducto {
+    color: #388E3C;
+    border: 1px solid #388E3C;
+}
+
 .signup a {
     width: auto;
-    margin: 2em auto 0 auto;
+    margin: 1em auto 0 auto;
     padding: 8px 10px;
     text-align: center;
     text-decoration: none;

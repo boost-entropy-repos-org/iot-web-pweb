@@ -8,8 +8,6 @@
             <p>
                 Bienvenido a la tienda de <strong>MyWebIOT</strong>. Ofrecemos todo tipo de sistemas embebidos de diferentes marcas (Arduino, STM, ESP, etc)
                 y sensores para medir temperatura, viento, etc.
-                <br><br>
-                El método de pago usado es PayPal.
             </p>
         </div>
 
@@ -26,25 +24,29 @@
 
     <div class="contenedor-productos">
         <div class="lista-productos">
-            <?php for($i = 0; $i < 5; $i++): ?>
-                <div id="pricing-tables">
+            <div id="pricing-tables">
+            <?php
+               $productos = \App\Models\Product::all();
+
+               foreach ($productos as $product):
+            ?>
+
                     <div class="pricing-table">
                         <div class="header">
-                            <div class="title">Arduino UNO</div>
-                            <div class="price">€29</div>
+                            <div class="title"><?php echo $product->name ?></div>
+                            <div class="price"><?php echo $product->price ?> € </div>
                         </div>
                         <div class="features">
                               <img class="imagenProducto" src="images/arduino.png" width="200" height="auto">
-                            <div class="descripcion-producto">
-                                Microcontrolador para monitorizar temperatura. Perfecto para iniciados y prototipado
-                            </div>
                         </div>
                         <div class="signup">
+                            <a href="#" id="masInfoProducto">Más información</a>
                             <a href="#">Añadir al carro</a>
                         </div>
                     </div>
-                </div>
-            <?php endfor; ?>
+
+            <?php endforeach; ?>
+            </div>
         </div>
         <div id="paginasCanales">
             <a href="#" class="previous round">&#8249;</a>
