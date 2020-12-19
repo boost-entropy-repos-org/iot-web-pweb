@@ -26,7 +26,9 @@
         <div class="lista-productos">
             <div id="pricing-tables">
             <?php
-               $productos = \App\Models\Product::all();
+               $productos = \Illuminate\Support\Facades\DB::table('products')
+                                                            ->select('products.*')
+                                                            ->paginate(4);
 
                foreach ($productos as $product):
             ?>
@@ -41,26 +43,25 @@
                         </div>
                         <div class="signup">
 
-                            <form method="post" action="verProducto" id="formDetalleProd">
+                            <form method="get" action="/tienda/verProducto" id="formDetalleProd">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
                                 <input type="submit" class="tiendaBoton" id="masInfoProducto" value="Más informacion">
                             </form>
 
-                            <form method="post" action="añadirCarro" id="formAñadirCarro">
+                            <form method="post" action="/tienda/añadirProducto" id="formAñadirCarro">
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
                                 <input type="submit" class="tiendaBoton" value="Añadir al carrito">
                             </form>
 
                         </div>
                     </div>
-
             <?php endforeach; ?>
             </div>
         </div>
         <div id="paginasCanales">
-            <a href="#" class="previous round">&#8249;</a>
-            <a href="#" class="next round">&#8250;</a>
+            <a href="<?php echo $productos->previousPageUrl()?>" class="previous round">&#8249;</a>
+            <a href="<?php echo $productos->nextPageUrl() ?>" class="next round">&#8250;</a>
         </div>
     </div>
 

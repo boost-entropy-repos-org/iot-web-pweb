@@ -10,6 +10,7 @@ class UsuarioSeeder extends Seeder
 {
     public function run()
     {
+        /*
         $adminUser = new Usuario();
         $adminUser->name = "admin";
         $adminUser->email = "admin@admin.com";
@@ -30,5 +31,6 @@ class UsuarioSeeder extends Seeder
         $testUser->password = md5("11");
         $testUser->birthday = new Date();
         $testUser->save();
+        */
     }
 }

@@ -82,7 +82,17 @@ Route::get('/tienda', function () {
         return view('tienda');
 });
 
-Route::post('/verProducto', [\App\Http\Controllers\ProductController::class, 'verProducto']);
+Route::get('/tienda/verProducto', [\App\Http\Controllers\ProductController::class, 'verProducto']);
+
+// BACKEND TIENDA
+
+Route::get('/tienda/consultarProducto', [\App\Http\Controllers\ProductController::class, 'consultarProducto']);
+
+Route::get('/tienda/eliminarProducto', [\App\Http\Controllers\ProductController::class, 'eliminarProducto']);
+
+Route::get('/tienda/editarProducto', [\App\Http\Controllers\ProductController::class, 'editarProducto']);
+
+Route::post('/tienda/procesarEditarProducto', [\App\Http\Controllers\ProductController::class, 'procesarEditarProducto']);
 
 
 

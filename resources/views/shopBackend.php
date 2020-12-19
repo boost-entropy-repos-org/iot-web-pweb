@@ -15,8 +15,8 @@
                     <th>Precio</th>
                     <th>Cantidad en stock</th>
                     <th>Consultar</th>
-                    <th>Eliminar</th>
                     <th>Modificar</th>
+                    <th>Eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,9 +29,24 @@
                     <td><?php echo $product->name ?></td>
                     <td><?php echo $product->price ?></td>
                     <td><?php echo $product->stock ?></td>
-                    <td><img class="iconosCRUDProducto" src="images/article-24px.svg"></td>
-                    <td><img class="iconosCRUDProducto" src="images/icono-borrar.svg"></td>
-                    <td><img class="iconosCRUDProducto" src="images/create-24px.svg"></td>
+                    <form method="get">
+                        <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
+                        <td>
+                            <button type="submit" formaction="/tienda/consultarProducto">
+                                <img class="iconosCRUDProducto" src="/images/article-24px.svg">
+                            </button>
+                        </td>
+                        <td>
+                            <button type="submit" formaction="/tienda/editarProducto">
+                                <img class="iconosCRUDProducto" src="/images/create-24px.svg">
+                            </button>
+                        </td>
+                        <td>
+                            <button type="submit" formaction="/tienda/eliminarProducto">
+                                <img class="iconosCRUDProducto" src="/images/icono-borrar.svg">
+                            </button>
+                        </td>
+                    </form>
                 </tr>
                 <?php endforeach; ?>
                 <tbody>

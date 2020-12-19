@@ -622,10 +622,6 @@ code {
     transition: all 0.4s;
 }
 
-.iconosCRUDProducto:hover {
-    width: 30px;
-}
-
 
 /* DETALLE PRODUCTO */
 
@@ -684,6 +680,26 @@ code {
 #volverAtras img {
     margin-right: 1em;
 }
+
+textarea {
+    outline: none;
+    -moz-outline-style: none;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 0.5em;
+}
+
+#botonesEditarProducto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#restablecerBtn {
+    background-color: #c62828;
+}
+
 
 
 
