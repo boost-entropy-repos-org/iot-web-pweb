@@ -362,7 +362,7 @@ code {
 
 .pricing-table {
     max-width: 300px;
-    height: 28em;
+    height: 26em;
     width: 100%;
     height: fit-content;
     margin: 5px 1em;
@@ -412,7 +412,6 @@ code {
     background: #fff;
     padding: 2px 0 5px 0;
     width: 100%;
-    display: flex;
     justify-content: center;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
@@ -424,9 +423,19 @@ code {
     border: 1px solid #388E3C;
 }
 
+#masInfoProducto:hover {
+    color: #FFFFFF;
+    background-color: #388E3C;
+}
+
+.signup form {
+    margin: 1em;
+    align-self: center;
+}
+
 .signup a {
     width: auto;
-    margin: 1em auto 0 auto;
+    margin: 1em auto 2em auto;
     padding: 8px 10px;
     text-align: center;
     text-decoration: none;
@@ -442,6 +451,26 @@ code {
     -moz-transition: all 0.4s;
     transition: all 0.4s;
 }
+
+.btnAñadirCarro {
+    width: auto;
+    margin: 1em auto 2em auto;
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #1f6f8b;
+    border: 1px solid #1f6f8b;
+    transition: all .2s ease;
+}
+
+.btnAñadirCarro:hover {
+    color: #FFFFFF;
+    background-color: #1f6f8b;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
 
 
 
@@ -595,6 +624,64 @@ code {
     width: 30px;
 }
 
+
+/* DETALLE PRODUCTO */
+
+#contenidoProducto {
+    margin: 2em;
+}
+
+#contenidoProducto h1 {
+    border-left: 0.5em solid #1f6f8b;
+    padding-left: 1em;
+}
+
+#productoDetalle {
+    display: grid;
+    grid-template-columns: 25% auto;
+    grid-template-areas: "imagen info";
+}
+
+#productoImagen {
+    grid-area: "imagen";
+}
+
+#productoImagen img {
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+}
+
+#infoProducto {
+    grid-area: "info";
+    margin-left: 4em;
+}
+
+#infoProducto ul {
+    list-style-type: none;
+    margin-left: -2.5em;
+}
+
+#quantity {
+    width: 45px;
+    height: 42px;
+    margin-right: 0.5em;
+    padding-left: 20px;
+    border: 1px solid #1f6f8b;
+
+}
+
+#volverAtras {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+#volverAtras img {
+    margin-right: 1em;
+}
 
 
 

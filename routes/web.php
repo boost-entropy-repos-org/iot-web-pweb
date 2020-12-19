@@ -82,6 +82,11 @@ Route::get('/tienda', function () {
         return view('tienda');
 });
 
+Route::post('/verProducto', [\App\Http\Controllers\ProductController::class, 'verProducto']);
+
+
+
+
 
 
 

@@ -40,8 +40,23 @@
                               <img class="imagenProducto" src="images/arduino.png" width="200" height="auto">
                         </div>
                         <div class="signup">
-                            <a href="#" id="masInfoProducto">Más información</a>
-                            <a href="#">Añadir al carro</a>
+
+                            <form method="post" action="verProducto" id="formDetalleProd">
+                                <?= csrf_field() ?>
+                                <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
+                                <a href="#" id="masInfoProducto" onclick="document.getElementById('formDetalleProd').submit()">
+                                    Más información
+                                </a>
+                            </form>
+
+                            <form method="post" action="añadirCarro" id="formAñadirCarro">
+                                <?= csrf_field() ?>
+                                <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
+                                <a href="#" onclick="document.getElementById('formAñadirCarro').submit()">
+                                    Añadir al carro
+                                </a>
+                            </form>
+
                         </div>
                     </div>
 
