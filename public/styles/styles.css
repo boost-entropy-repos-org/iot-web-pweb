@@ -569,7 +569,6 @@ code {
     padding: 0 2em;
 }
 
-
 .table-wrapper{
     margin: 0;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
@@ -613,10 +612,12 @@ code {
     flex-direction: row;
     width: 100%;
     max-width: 100%;
+    height: auto;
 }
 
 .transacciones {
     width: 50%;
+    margin-bottom: 7em;
 }
 
 .ordenes {
@@ -746,6 +747,28 @@ textarea {
 .closebtn:hover {
     color: black;
 }
+
+#cabeceraProductos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#añadirProductos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10%;
+    color: inherit;
+}
+
+#añadirProductos span {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+
 
 
 

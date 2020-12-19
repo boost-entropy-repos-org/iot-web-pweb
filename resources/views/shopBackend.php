@@ -1,11 +1,25 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
+
+<?php if(session('exito') != null):?>
+    <div class="alertExito">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo session('exito') ?>
+    </div>
+<?php endif; ?>
+
 <main id="shopBackend">
 
     <h1>Panel de administración de la tienda</h1>
 
     <section id="productos">
-        <h2>Administrar productos</h2>
+        <diV id="cabeceraProductos">
+            <h2>Administrar productos</h2>
+            <a href="/tienda/añadirProducto" id="añadirProductos">
+                <span>Añadir producto</span>
+                <img src="/images/add-24px.svg">
+            </a>
+        </diV>
         <div class="table-wrapper">
             <table class="fl-table">
                 <thead>

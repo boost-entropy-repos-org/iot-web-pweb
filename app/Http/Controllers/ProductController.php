@@ -34,7 +34,7 @@ class ProductController extends Controller
             Product::where('id', $_GET['prodID'])
                 ->first()
                 ->delete();
-            return redirect('/tienda');
+            return redirect('/tienda')->with('exito','Se ha eliminado el producto correctamente');
         }
     }
 
@@ -56,7 +56,22 @@ class ProductController extends Controller
                 $product->stock = doubleval($_POST['stock']);
             }
             $product->save();
-            return redirect('/tienda');
+            return redirect('/tienda')->with('exito','Se ha editado el producto ' . $product->name . ' correctamente');
+        }
+    }
+
+    public function procesar_producto() {
+        if(isset($_POST['productName'], $_POST['description'], $_POST['price'], $_POST['stock'])) {
+            $newProduct = new Product();
+            $newProduct->name = $_POST['productName'];
+            $newProduct->description = $_POST['description'];
+            $newProduct->price = $_POST['price'];
+            $newProduct->stock = $_POST['stock'];
+            $newProduct->save();
+
+            return redirect('/tienda')->with('exito','Se ha añadido el producto ' . $_POST['productName']);
+        } else {
+            return back()->with('error','Se ha añadido el producto ' . $_POST['productName']);
         }
     }
 }

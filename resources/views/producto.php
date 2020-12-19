@@ -26,7 +26,7 @@
                 <li><?php echo $product->stock ?></li>
             </ul>
             <div id="precio">
-                <h2><?php echo $product->stock ?> €</h2>
+                <h2><?php echo $product->price ?> €</h2>
             </div>
             <form method="post" action="añadirCarro" id="formAñadirCarro">
                 <?= csrf_field() ?>
