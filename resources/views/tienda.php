@@ -44,17 +44,12 @@
                             <form method="post" action="verProducto" id="formDetalleProd">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
-                                <a href="#" id="masInfoProducto" onclick="document.getElementById('formDetalleProd').submit()">
-                                    Más información
-                                </a>
+                                <input type="submit" class="tiendaBoton" id="masInfoProducto" value="Más informacion">
                             </form>
 
                             <form method="post" action="añadirCarro" id="formAñadirCarro">
-                                <?= csrf_field() ?>
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
-                                <a href="#" onclick="document.getElementById('formAñadirCarro').submit()">
-                                    Añadir al carro
-                                </a>
+                                <input type="submit" class="tiendaBoton" value="Añadir al carrito">
                             </form>
 
                         </div>

@@ -429,22 +429,24 @@ code {
 }
 
 .signup form {
-    margin: 1em;
+    margin: 0.5em;
     align-self: center;
 }
 
-.signup a {
+.tiendaBoton {
+    font-size: 12px;
     width: auto;
-    margin: 1em auto 2em auto;
+    margin: 0 auto 0 auto;
     padding: 8px 10px;
     text-align: center;
     text-decoration: none;
     color: #1f6f8b;
     border: 1px solid #1f6f8b;
+    background-color: #FFFFFF;
     transition: all .2s ease;
 }
 
-.signup a:hover {
+.tiendaBoton:hover {
     color: #FFFFFF;
     background-color: #1f6f8b;
     -webkit-transition: all 0.4s;
