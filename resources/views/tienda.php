@@ -46,13 +46,20 @@
                             <form method="get" action="/tienda/verProducto" id="formDetalleProd">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
-                                <input type="submit" class="tiendaBoton" id="masInfoProducto" value="Más informacion">
+                                <?php if($product->stock == 0):?>
+                                    <input type="submit" class="tiendaBoton" id="productoAgotado" value="SIN EXISTENCIAS" disabled>
+                                <?php
+                                    endif;
+                                    if($product->stock > 0):
+                                ?>
+                                    <input type="submit" class="tiendaBoton" id="masInfoProducto" value="Más informacion">
                             </form>
 
                             <form method="post" action="/tienda/añadirProducto" id="formAñadirCarro">
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
                                 <input type="submit" class="tiendaBoton" value="Añadir al carrito">
                             </form>
+                            <?php endif; ?>
 
                         </div>
                     </div>

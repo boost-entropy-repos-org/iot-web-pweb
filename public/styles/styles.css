@@ -418,6 +418,17 @@ code {
     transition: all 0.4s;
 }
 
+#productoAgotado {
+    color: black;
+    border: 1px solid darkgrey;
+}
+
+
+#productoAgotado:hover {
+    color: #FFFFFF;
+    background-color: darkgrey;
+}
+
 #masInfoProducto {
     color: #388E3C;
     border: 1px solid #388E3C;
