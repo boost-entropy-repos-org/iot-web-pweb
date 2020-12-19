@@ -1,6 +1,13 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
 
+<?php if(session('error') != null):?>
+    <div class="alertError">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo session('error') ?>
+    </div>
+<?php endif; ?>
+
 <div id="contenido">
     <form id="formularioRegistro" name="registroForm" onsubmit="return checkAge()" method="post" action="procesar_registro">
         <?= csrf_field() ?>
@@ -18,12 +25,6 @@
                 <td><label> Email </label></td>
                 <td><input type="email" name="email" required/></td>
             </tr>
-                <?php
-                    if(isset($invalid_email)) {
-                        echo "<tr><td></td><td>El email ya se ha registrado</td></tr>";
-                        echo "<script>window.alert('Email ya registrado')</script>";
-                    }
-                ?>
             <tr>
                 <td><label> Contraseña </label></td>
                 <!--<td><input type="password" name="password" minlength="8" maxlength="14" pattern="[A-Za-z0-9]+" required/></td>-->
@@ -47,7 +48,6 @@
 </div>
 
 <script src="scripts/validateRegister.js" defer></script>
-
 
 <!-- PIE DE PÁGINA -->
 <?php include('components/footer.php'); ?>

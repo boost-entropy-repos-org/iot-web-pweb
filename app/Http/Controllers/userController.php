@@ -31,16 +31,17 @@ class userController extends Controller {
                 if($datos_registro["password"] == $repeat_password) {
 
                     if ($this->emailAlreadyCreated($_POST["email"])){
-                        return view('register', ['invalid_email' => true]);
-
+                        return redirect('/registro')->with('error','El email introducido ya está registrado');
                     } else {
                         $this->insertUser($datos_registro);
                         $this->loginUser($datos_registro["email"]);
-                        return view('index');
+                        return redirect('/')->with('exito','Se ha registrado correctamente');
                     }
+                } else {
+                    return redirect('/registro')->with('error','Las contraseñas son diferentes');
                 }
             } else {
-                return view('register');
+                return redirect('/registro')->with('error','Uno de los campos no se ha introducido correctamente');
             }
         //}
     }
@@ -57,9 +58,9 @@ class userController extends Controller {
 
             if($this->validateUserLogin($email, $password)) {
                 $this->loginUser($email);
-                return redirect('/');
+                return redirect('/')->with('exito','Ha iniciado sesión correctamente');
             } else {
-                return redirect('login');
+                return redirect('/login')->with('error','El email o la contraseña son incorrectos');
             }
         }
     }

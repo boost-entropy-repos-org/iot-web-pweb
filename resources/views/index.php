@@ -21,6 +21,14 @@
     }
 </script>
 
+<?php if(session('exito') != null):?>
+    <div class="alertExito">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo session('exito') ?>
+    </div>
+<?php endif; ?>
+
+
 <aside id="lateral">
     <span>Usuarios creados: <div id="numUsuarios">numusers</div></span><br>
     <span>Canales activos: <div id="numCanales">numCanales</div></span><br>
