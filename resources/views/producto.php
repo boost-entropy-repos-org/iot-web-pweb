@@ -28,7 +28,7 @@
             <div id="precio">
                 <h2><?php echo $product->price ?> €</h2>
             </div>
-            <form method="post" action="añadirCarro" id="formAñadirCarro">
+            <form method="post" action="/tienda/añadirProducto" id="formAñadirCarro">
                 <?= csrf_field() ?>
                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
                 <input type="number" id="quantity" name="quantity" min="1" value="1">

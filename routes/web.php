@@ -94,11 +94,12 @@ Route::get('/tienda/editarProducto', [\App\Http\Controllers\ProductController::c
 
 Route::post('/tienda/procesarEditarProducto', [\App\Http\Controllers\ProductController::class, 'procesarEditarProducto']);
 
-Route::get('/tienda/añadirProducto', function () {
-    return view('addProduct');
-});
+Route::post('/tienda/añadirProducto', [\App\Http\Controllers\ProductController::class, 'añadirProducto']);
 
 Route::post('/tienda/procesar_producto', [\App\Http\Controllers\ProductController::class, 'procesar_producto']);
+
+Route::get('/tienda/getNumeroElementosCarro', [\App\Http\Controllers\ProductController::class, 'getNumeroElementosCarro']);
+
 
 
 

@@ -1,5 +1,20 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<?php if(session('exito') != null):?>
+    <div class="alertExito">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo session('exito') ?>
+    </div>
+<?php endif; ?>
+
+<?php if(session('error') != null):?>
+    <div class="alertError">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo session('error') ?>
+    </div>
+<?php endif; ?>
 
 <main id="contenidoTienda">
 
@@ -14,12 +29,17 @@
         <div class="contenedor-carrito">
             <div id="carrito">
                 <img src="images/carrito.svg">
-                <span id="elementos-carrito"><strong>4</strong></span>
+                <span><div id="elementosCarro"></div></span>
+                <script>
+                    //CARGA EL NUMERO DE ELEMENTOS EN EL CARRITO
+                    $('#elementosCarro').load('tienda/getNumeroElementosCarro')
+                </script>
             </div>
             <a href="carrito"><button class="botonCheckout">
                     <img src="images/paypal.svg">
                     <span>Checkout</span>
-                </button></a>
+                </button>
+            </a>
         </div>
 
     <div class="contenedor-productos">
@@ -29,10 +49,8 @@
                $productos = \Illuminate\Support\Facades\DB::table('products')
                                                             ->select('products.*')
                                                             ->paginate(4);
-
                foreach ($productos as $product):
             ?>
-
                     <div class="pricing-table">
                         <div class="header">
                             <div class="title"><?php echo $product->name ?></div>
@@ -44,7 +62,6 @@
                         <div class="signup">
 
                             <form method="get" action="/tienda/verProducto" id="formDetalleProd">
-                                <?= csrf_field() ?>
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
                                 <?php if($product->stock == 0):?>
                                     <input type="submit" class="tiendaBoton" id="productoAgotado" value="SIN EXISTENCIAS" disabled>
@@ -56,11 +73,12 @@
                             </form>
 
                             <form method="post" action="/tienda/añadirProducto" id="formAñadirCarro">
+                                <?= csrf_field() ?>
+                                <input type="hidden" name="quantity" value="1">
                                 <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
                                 <input type="submit" class="tiendaBoton" value="Añadir al carrito">
                             </form>
                             <?php endif; ?>
-
                         </div>
                     </div>
             <?php endforeach; ?>
