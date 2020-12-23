@@ -100,6 +100,9 @@ Route::post('/tienda/procesar_producto', [\App\Http\Controllers\ProductControlle
 
 Route::get('/tienda/getNumeroElementosCarro', [\App\Http\Controllers\ProductController::class, 'getNumeroElementosCarro']);
 
+Route::get('/tienda/mostrarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'mostrarCarrito']);
+
+
 
 
 

@@ -35,8 +35,8 @@
                     $('#elementosCarro').load('tienda/getNumeroElementosCarro')
                 </script>
             </div>
-            <a href="carrito"><button class="botonCheckout">
-                    <img src="images/paypal.svg">
+            <a href="/tienda/mostrarCarrito"><button class="botonCheckout">
+                    <img src="/images/paypal.svg">
                     <span>Checkout</span>
                 </button>
             </a>
@@ -91,12 +91,6 @@
     </div>
 
 </main>
-
-
-
-
-
-
 
 
 <!-- PIE DE PÁGINA -->

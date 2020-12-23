@@ -16,7 +16,7 @@ class CreateChannelsTable extends Migration
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('usuarios');
+            $table->foreign('id_user')->references('id')->on('usuarios')->onDelete("cascade");
 
             $table->string('channel_name', 50);
             $table->string('sensor_name', 50);

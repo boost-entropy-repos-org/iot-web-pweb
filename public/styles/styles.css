@@ -639,6 +639,8 @@ code {
 
 #contenidoProducto {
     margin: 2em;
+    padding-bottom: 3.5rem;
+    margin-bottom: 0em;
 }
 
 #contenidoProducto h1 {
@@ -768,6 +770,53 @@ textarea {
     margin-right: 10px;
 }
 
+/* CARRITO */
+
+.productoCarro {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 0 0.5em;
+    margin: 1em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.imagenProductoCarro img {
+    width: 120px;
+    height: auto;
+    margin: 0 2em;
+}
+
+.infoProductoCarro {
+    padding: 0 0.5em;
+}
+
+#articulosCarro hr {
+    height: 1px;
+    border: 0;
+    background-color: darkgrey;
+    margin: 2em 0 0.5em 0;
+}
+
+#totalPago {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pagarConPaypal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+#pagarConPaypal a {
+    margin-bottom: 0.5em;
+}
 
 
 

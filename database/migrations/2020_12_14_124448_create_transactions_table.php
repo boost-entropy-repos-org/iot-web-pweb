@@ -12,9 +12,9 @@ class CreateTransactionsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('id_order');
-            $table->foreign('id_order')->references('id')->on('orders');
+            $table->foreign('id_order')->references('id')->on('orders')->onDelete("cascade");
             $table->unsignedBigInteger('id_client');
-            $table->foreign('id_client')->references('id')->on('usuarios');
+            $table->foreign('id_client')->references('id')->on('usuarios')->onDelete("cascade");
 
             $table->string('status');
             $table->string('currency');

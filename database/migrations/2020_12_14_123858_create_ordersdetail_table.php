@@ -12,10 +12,13 @@ class CreateOrdersdetailTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('id_order');
-            $table->foreign('id_order')->references('id')->on('orders');
+            $table->foreign('id_order')->references('id')->on('orders')->onDelete("cascade");
 
             $table->unsignedBigInteger('id_product');
-            $table->foreign('id_product')->references('id')->on('products');
+            $table->foreign('id_product')->references('id')->on('products')->onDelete("cascade");
+
+            $table->double('price');
+            $table->integer('quantity');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
