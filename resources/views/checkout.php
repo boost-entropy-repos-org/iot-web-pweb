@@ -2,6 +2,10 @@
 <?php include('components/header.php'); ?>
 
 <main id="contenidoProducto">
+    <a href="/tienda" id="volverAtras">
+        <img src="/images/arrow_back-24px.svg"/>
+        <span>Volver a la tienda</span>
+    </a>
     <h1>Carrito de compra</h1>
 
     <section id="articulosCarro">

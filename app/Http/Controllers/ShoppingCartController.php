@@ -9,7 +9,6 @@ use App\Classes\ShoppingCartItem;
 class ShoppingCartController extends Controller
 {
     public function mostrarCarrito() {
-
         $datos = session()->all();
         $listaCarro = array();
         $totalPago = 0;
@@ -29,8 +28,12 @@ class ShoppingCartController extends Controller
                 $totalPago += $itemCarrito->getTotalPrice();
             }
         }
-        return view('checkout')->with('listaCarro', $listaCarro)
-                                     ->with('totalPago', $totalPago);
+        if(count($listaCarro) > 0) {
+            return view('checkout')->with('listaCarro', $listaCarro)
+                ->with('totalPago', $totalPago);
+        } else {
+            return redirect('/tienda')->with('error', '¡El carrito está vacío! Añada elementos al carrito para pagar');
+        }
     }
 
     public function vaciarCarrito() {
