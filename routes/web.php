@@ -88,6 +88,10 @@ Route::get('/tienda/verProducto', [\App\Http\Controllers\ProductController::clas
 
 // BACKEND TIENDA
 
+Route::get('/tienda/nuevoProducto', function () {
+    return view('addProduct');
+});
+
 Route::get('/tienda/consultarProducto', [\App\Http\Controllers\ProductController::class, 'consultarProducto']);
 
 Route::get('/tienda/eliminarProducto', [\App\Http\Controllers\ProductController::class, 'eliminarProducto']);
@@ -96,11 +100,11 @@ Route::get('/tienda/editarProducto', [\App\Http\Controllers\ProductController::c
 
 Route::post('/tienda/procesarEditarProducto', [\App\Http\Controllers\ProductController::class, 'procesarEditarProducto']);
 
-Route::post('/tienda/añadirProducto', [\App\Http\Controllers\ProductController::class, 'añadirProducto']);
+Route::post('/tienda/añadirProducto', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProducto']);
 
 Route::post('/tienda/procesar_producto', [\App\Http\Controllers\ProductController::class, 'procesar_producto']);
 
-Route::get('/tienda/getNumeroElementosCarro', [\App\Http\Controllers\ProductController::class, 'getNumeroElementosCarro']);
+Route::get('/tienda/getNumeroElementosCarro', [\App\Http\Controllers\ShoppingCartController::class, 'getNumeroElementosCarro']);
 
 Route::get('/tienda/mostrarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'mostrarCarrito']);
 

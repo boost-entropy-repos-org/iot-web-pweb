@@ -96,6 +96,7 @@ class PaymentController extends Controller
             $pago_id = $paymentId;
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.
             ID DEL PAGO: ' . $pago_id;
+            $this->vaciarCarrito();
             return redirect('/tienda')->with('exito', $status);
         }
 
@@ -115,5 +116,14 @@ class PaymentController extends Controller
             }
         }
         return $totalPago;
+    }
+
+    public function vaciarCarrito() {
+        $datos = session()->all();
+        foreach ($datos as $producto => $cantidad) {
+            if(substr($producto, 0, 5) == 'PROD-') {
+                session()->forget($producto);
+            }
+        }
     }
 }

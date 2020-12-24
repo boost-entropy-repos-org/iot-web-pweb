@@ -45,4 +45,32 @@ class ShoppingCartController extends Controller
         }
         return redirect('/tienda')->with('exito', 'Se ha eliminado el contenido del carrito');
     }
+
+    public function añadirProducto() {
+        if(session('id') == null) {
+            return redirect('/tienda')->with('error', 'Debe iniciar sesión para comprar productos de la tienda');
+        }
+        if(isset($_POST['prodID'], $_POST['quantity'])) {
+            $producto = "PROD-" . $_POST['prodID'];
+            if(session($producto) != null) {
+                $cantidadEnCarro = session($producto) + $_POST['quantity'];
+                session([$producto => $cantidadEnCarro]);
+            } else {
+                session([$producto => $_POST['quantity']]);
+            }
+            return redirect('/tienda')->with('exito', 'Se han añadido ' . $_POST['quantity'] . ' producto(s) al carro');
+        }
+        return redirect('/tienda')->with('error', 'Ha ocurrido un error al añadir el producto al carro');
+    }
+
+    public function getNumeroElementosCarro() {
+        $data = session()->all();
+        $NelementosCarro = 0;
+        foreach ($data as $key => $valor) {
+            if($key[0]=='P') {
+                $NelementosCarro += $valor;
+            }
+        }
+        return $NelementosCarro;
+    }
 }

@@ -15,7 +15,7 @@
     <section id="productos">
         <diV id="cabeceraProductos">
             <h2>Administrar productos</h2>
-            <a href="/tienda/añadirProducto" id="añadirProductos">
+            <a href="/tienda/nuevoProducto" id="añadirProductos">
                 <span>Añadir producto</span>
                 <img src="/images/add-24px.svg">
             </a>
