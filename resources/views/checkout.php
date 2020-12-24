@@ -33,12 +33,17 @@
         <h2><strong><?php echo $totalPago ?> €</strong></h2>
     </div>
     <div id="pagarConPaypal">
-        <a href="/tienda/mostrarCarrito"><button class="botonCheckout">
+        <form method="get" action="/tienda/pagoPaypal">
+            <button type="submit" class="botonCheckout">
                 <img src="/images/paypal.svg">
                 <span>Pagar con Paypal</span>
             </button>
+        </form>
+        <a href="/tienda/vaciarCarrito">
+            <button class="tiendaBoton" id="vaciarCarro">
+                Vaciar carrito
+            </button>
         </a>
-        <a href="/tienda/vaciarCarrito"><button class="tiendaBoton">Vaciar carrito</button></a>
     </div>
 </main>
 

@@ -84,7 +84,7 @@ class ProductController extends Controller
             } else {
                 session([$producto => $_POST['quantity']]);
             }
-            return redirect('/tienda')->with('exito', 'Se han añadido ' . $_POST['quantity'] . ' al carro');
+            return redirect('/tienda')->with('exito', 'Se han añadido ' . $_POST['quantity'] . ' producto(s) al carro');
         }
         return redirect('/tienda')->with('error', 'Ha ocurrido un error al añadir el producto al carro');
     }

@@ -84,6 +84,8 @@ Route::get('/tienda', function () {
 
 Route::get('/tienda/verProducto', [\App\Http\Controllers\ProductController::class, 'verProducto']);
 
+
+
 // BACKEND TIENDA
 
 Route::get('/tienda/consultarProducto', [\App\Http\Controllers\ProductController::class, 'consultarProducto']);
@@ -104,8 +106,11 @@ Route::get('/tienda/mostrarCarrito', [\App\Http\Controllers\ShoppingCartControll
 
 Route::get('/tienda/vaciarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'vaciarCarrito']);
 
+//PAYPAL
 
+Route::get('/tienda/pagoPaypal', [\App\Http\Controllers\PaymentController::class, 'pagoPaypal']);
 
+Route::get('/paypal/status', [\App\Http\Controllers\PaymentController::class, 'payPalStatus']);
 
 
 

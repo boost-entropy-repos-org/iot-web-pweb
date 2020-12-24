@@ -457,6 +457,10 @@ code {
     transition: all .2s ease;
 }
 
+#vaciarCarro {
+    margin-top: 2em;
+}
+
 .tiendaBoton:hover {
     color: #FFFFFF;
     background-color: #1f6f8b;
