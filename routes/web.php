@@ -102,6 +102,8 @@ Route::get('/tienda/getNumeroElementosCarro', [\App\Http\Controllers\ProductCont
 
 Route::get('/tienda/mostrarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'mostrarCarrito']);
 
+Route::get('/tienda/vaciarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'vaciarCarrito']);
+
 
 
 

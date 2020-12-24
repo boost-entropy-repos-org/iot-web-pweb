@@ -32,4 +32,14 @@ class ShoppingCartController extends Controller
         return view('checkout')->with('listaCarro', $listaCarro)
                                      ->with('totalPago', $totalPago);
     }
+
+    public function vaciarCarrito() {
+        $datos = session()->all();
+        foreach ($datos as $producto => $cantidad) {
+            if(substr($producto, 0, 5) == 'PROD-') {
+                session()->forget($producto);
+            }
+        }
+        return redirect('/tienda')->with('exito', 'Se ha eliminado el contenido del carrito');
+    }
 }
