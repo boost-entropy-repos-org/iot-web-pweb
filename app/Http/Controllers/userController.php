@@ -48,7 +48,7 @@ class userController extends Controller {
 
     public function cerrarSesion() {
         session()->flush();
-        return redirect('/');
+        return redirect('/')->with('exito', 'Ha cerrado sesión correctamente');
     }
 
     public function procesarLogin() {

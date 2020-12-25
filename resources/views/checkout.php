@@ -20,7 +20,7 @@
                 <ul>
                     <li><strong>Descripción: </strong> <?php echo $producto->description ?></li>
                     <li><strong>Cantidad: </strong> <?php echo $producto->quantity ?> ud(s) </li>
-                    <li><strong>Precio por unidad: </strong> <?php echo $producto->price ?> €</li>
+                    <li><strong>Precio por unidad: </strong> <?php echo number_format($producto->price,2) ?> €</li>
                 </ul>
                 <p>TOTAL: <?php echo $producto->getTotalPrice() ?> €</p>
             </div>
@@ -30,7 +30,7 @@
     </section>
     <div id="totalPago">
         <h2>TOTAL</h2>
-        <h2><strong><?php echo $totalPago ?> €</strong></h2>
+        <h2><strong><?php echo number_format($totalPago,2) ?> €</strong></h2>
     </div>
     <div id="pagarConPaypal">
         <form method="get" action="/tienda/pagoPaypal">

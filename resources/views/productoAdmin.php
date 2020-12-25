@@ -38,7 +38,7 @@ $product = \App\Models\Product::where('id', $id)->first();
                 <li><?php echo $product->stock ?></li>
             </ul>
             <div id="precio">
-                <h2><?php echo $product->price ?> €</h2>
+                <h2><?php echo number_format($product->price,2) . " €"?> €</h2>
             </div>
         </div>
     </div>

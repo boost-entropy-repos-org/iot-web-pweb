@@ -50,7 +50,14 @@ class ShoppingCartController extends Controller
         if(session('id') == null) {
             return redirect('/tienda')->with('error', 'Debe iniciar sesión para comprar productos de la tienda');
         }
+
         if(isset($_POST['prodID'], $_POST['quantity'])) {
+
+            //Se comprueba si hay stock suficiente
+            if(!$this->isProductAvailable($_POST['prodID'],$_POST['quantity'])) {
+                return redirect('/tienda')->with('error', 'No hay suficientes unidades en stock');
+            }
+
             $producto = "PROD-" . $_POST['prodID'];
             if(session($producto) != null) {
                 $cantidadEnCarro = session($producto) + $_POST['quantity'];
@@ -72,5 +79,10 @@ class ShoppingCartController extends Controller
             }
         }
         return $NelementosCarro;
+    }
+
+    public function isProductAvailable($prodID, $cantidad) {
+        $producto = Product::where('id', $prodID)->first();
+        return ($producto->stock > $cantidad);
     }
 }

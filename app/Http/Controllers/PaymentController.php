@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Classes\ShoppingCartItem;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Pago;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -90,12 +92,29 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->apiContext);
 
         if ($result->getState() === 'approved') {
-            //Insertar en BD
+            //Insertar la orden de pago y la transacción
+            $order = new Order();
+            $order->id_client = session('id');
+            $order->total = $amount;
+            $order->status = "COMPLETADO";
+            $order->save();
 
+            $transactionBD = new \App\Models\Transaction();
+            $transactionBD->id_order = $order->id;
+            $transactionBD->id_client = session('id');
+            $transactionBD->currency = $transaction[0]->getAmount()->currency;
+            $transactionBD->status = "COMPLETADO";
+            $transactionBD->total = $amount;
+            $transactionBD->payment_method = "PAYPAL";
+            $transactionBD->save();
+
+            $this->createOrderDetails($order->id);
 
             $pago_id = $paymentId;
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.
             ID DEL PAGO: ' . $pago_id;
+
+            //Se vacia el carrito tras realizar el pago
             $this->vaciarCarrito();
             return redirect('/tienda')->with('exito', $status);
         }
@@ -123,6 +142,27 @@ class PaymentController extends Controller
         foreach ($datos as $producto => $cantidad) {
             if(substr($producto, 0, 5) == 'PROD-') {
                 session()->forget($producto);
+            }
+        }
+    }
+
+    public function createOrderDetails($orderID) {
+        $datos = session()->all();
+        foreach ($datos as $producto => $cantidad) {
+            if(substr($producto, 0, 5) == 'PROD-') {
+                $prodID = substr($producto, 5);
+                $infoProducto = Product::where('id', $prodID)->first();
+
+                //Update stock
+                $infoProducto->stock -= $cantidad;
+                $infoProducto->save();
+
+                $orderDetail = new OrderDetail();
+                $orderDetail->id_order = $orderID;
+                $orderDetail->id_product = $prodID;
+                $orderDetail->price = $infoProducto->price;
+                $orderDetail->quantity = $cantidad;
+                $orderDetail->save();
             }
         }
     }

@@ -54,7 +54,7 @@
                     <div class="pricing-table">
                         <div class="header">
                             <div class="title"><?php echo $product->name ?></div>
-                            <div class="price"><?php echo $product->price ?> € </div>
+                            <div class="price"><?php echo number_format($product->price,2) ?> € </div>
                         </div>
                         <div class="features">
                               <img class="imagenProducto" src="images/arduino.png" width="200" height="auto">

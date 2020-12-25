@@ -41,7 +41,7 @@
                 <tr>
                     <td><?php echo $product->id ?></td>
                     <td><?php echo $product->name ?></td>
-                    <td><?php echo $product->price ?></td>
+                    <td><?php echo number_format($product->price,2) . " €" ?></td>
                     <td><?php echo $product->stock ?></td>
                     <form method="get">
                         <input type="hidden" name="prodID" value="<?php echo $product->id ?>">
@@ -92,7 +92,7 @@
                         <tr>
                             <td><?php echo $order->id ?></td>
                             <td><?php echo $order->name ?></td>
-                            <td><?php echo $order->total ?></td>
+                            <td><?php echo number_format($order->total,2) . " €"?></td>
                             <td><?php echo $order->status ?></td>
                         </tr>
                         <?php endforeach; ?>
@@ -126,7 +126,7 @@
                         <td><?php echo $transaction->id ?></td>
                         <td><?php echo $transaction->id_order ?></td>
                         <td><?php echo $transaction->name ?></td>
-                        <td><?php echo $transaction->total ?></td>
+                        <td><?php echo number_format($transaction->total,2) . " €"?></td>
                         <td><?php echo $transaction->created_at ?></td>
                     </tr>
                         <?php endforeach; ?>
