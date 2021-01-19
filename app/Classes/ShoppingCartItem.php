@@ -17,5 +17,4 @@ class ShoppingCartItem {
         return $this->quantity * $this->price;
     }
 }
-
 ?>

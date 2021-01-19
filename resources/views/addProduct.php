@@ -1,12 +1,7 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
 
-<?php if(session('error') != null):?>
-    <div class="alertError">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <?php echo session('error') ?>
-    </div>
-<?php endif; ?>
+<?php include('components/notifications.php'); ?>
 
 <main id="contenidoProducto">
 

@@ -81,6 +81,7 @@ class ShoppingCartController extends Controller
         return $NelementosCarro;
     }
 
+
     public function isProductAvailable($prodID, $cantidad) {
         $producto = Product::where('id', $prodID)->first();
         return ($producto->stock > $cantidad);

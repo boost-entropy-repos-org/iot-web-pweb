@@ -1,12 +1,8 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
 
-<?php if(session('exito') != null):?>
-    <div class="alertExito">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <?php echo session('exito') ?>
-    </div>
-<?php endif; ?>
+<?php include('components/notifications.php'); ?>
+
 
 <main id="shopBackend">
 

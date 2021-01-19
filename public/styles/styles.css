@@ -75,7 +75,8 @@ h1 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 0.5em;
+    width: 100%;
     cursor: pointer;
 }
 
@@ -823,6 +824,125 @@ textarea {
     margin-bottom: 0.5em;
 }
 
+/* RED SOCIAL */
+
+#contenido-social {
+    margin: 2em;
+    padding-bottom: 3.5rem;
+}
+
+#wrapper-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#options-social {
+    width: 100vh;
+    margin: 1em;
+    grid-area: options;
+    border-radius: 20px;
+}
+
+#profile-img {
+    width: 100px;
+    height: auto;
+    border-radius: 20px;
+}
+
+#profile-wrapper {
+    box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 30px;
+    padding: 0.5em 2em;
+    margin-right: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#profile-status h1 {
+    margin-bottom: 0;
+}
+
+#profile-status {
+    margin-left: 2em;
+}
+
+#social-wall {
+    margin: 3em auto;
+    border-left: 0.5em solid #1f6f8b;
+    padding-left: 1em;
+}
+
+#followed-channels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.channel-list {
+    width: 100vh;
+    margin: 0 2em;
+}
+
+#form-msg {
+    display: inline;
+}
+
+#wrapper-messages {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#write-msg {
+    width: 100vh;
+}
+
+#msg-received {
+    width: 100vh;
+}
+
+.follow-user a{
+    text-decoration: none;
+    color: green;
+}
+
+.unfollow-user a{
+    text-decoration: none;
+    color: darkred;
+}
+
+.mensaje {
+    margin: 10px;
+    padding: 2px 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 10px;
+}
+
+.mensaje-muro {
+    padding: 20px;
+    font-weight: bold;
+}
+
+.creador-mensaje {
+    color: green;
+    font-weight: bold;
+}
+
+.destino {
+    color: darkred;
+    font-weight: bold;
+}
+
+.fecha-mensaje {
+    font-weight: bold;
+}
+
+.susurro {
+    font-weight: bold;
+    text-decoration: underline;
+}
 
 
 

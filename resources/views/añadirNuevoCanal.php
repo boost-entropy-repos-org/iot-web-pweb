@@ -1,6 +1,8 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
 
+<?php include('components/notifications.php'); ?>
+
 <div class="contenido">
     <form id="formularioRegistro" method="get" action="añadir_canal">
         <table class="formularioTabla">

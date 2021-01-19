@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use function Symfony\Component\String\s;
@@ -91,6 +92,14 @@ class userController extends Controller {
         $newUser->password = md5($userInformation["password"]);
         $newUser->birthday = $userInformation["date"];
         $newUser->save();
+
+        $usuario = Usuario::where('email',$userInformation["email"])->first();
+
+        $newProfile = new Profile();
+        $newProfile->id_user = $usuario->id;
+        $newProfile->description = "Mi primer estado";
+        $newProfile->img = "/img/icono-user.svg";
+        $newProfile->save();
     }
 
     public function getNumUsers() {

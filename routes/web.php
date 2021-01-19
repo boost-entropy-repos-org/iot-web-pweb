@@ -116,6 +116,35 @@ Route::get('/tienda/pagoPaypal', [\App\Http\Controllers\PaymentController::class
 
 Route::get('/paypal/status', [\App\Http\Controllers\PaymentController::class, 'payPalStatus']);
 
+//SOCIAL
+
+Route::get('/social', [\App\Http\Controllers\SocialController::class, 'showSocialHome']);
+
+Route::get('/social/members', [\App\Http\Controllers\SocialController::class, 'members']);
+
+Route::get('/social/followers', [\App\Http\Controllers\SocialController::class, 'followers']);
+
+Route::get('/social/channels', [\App\Http\Controllers\SocialController::class, 'channels']);
+
+Route::get('/social/editProfile', function () {
+    return view('editProfile');
+});
+
+Route::get('/social/messages', function () {
+    return view('messages');
+});
+
+Route::get('/social/follow/{id}', [\App\Http\Controllers\SocialController::class, 'followUser']);
+
+Route::get('/social/unfollow/{id}', [\App\Http\Controllers\SocialController::class, 'unfollowUser']);
+
+Route::post('/social/send', [\App\Http\Controllers\SocialController::class, 'send']);
+
+Route::get('/social/lastMessages', [\App\Http\Controllers\SocialController::class, 'lastMessages']);
+
+Route::post('/social/procesarEditarPerfil', [\App\Http\Controllers\SocialController::class, 'procesarEditarPerfil']);
+
+
 
 
 

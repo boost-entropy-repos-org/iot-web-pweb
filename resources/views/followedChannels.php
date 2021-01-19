@@ -1,37 +1,32 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
 
-<div class="contenido">
-    <main id="pagCanales">
-        <section id="listadoCanales">
-
+<div id="contenido-social">
+    <a href="/social" id="volverAtras">
+        <img src="/images/arrow_back-24px.svg"/>
+        <span>Volver a MyWebIoT Social</span>
+    </a>
+    <h1>Canales creados y seguidos</h1>
+    <main id="followed-channels">
+        <section class="channel-list">
             <?php
-                $nombreUser = session('username');
-                if(isset($nombreUser)) {
-                    echo '<a href="nuevoCanal"><button type="submit" class="boton" >Nuevo canal</button></a>';
-                }
-            ?>
+                $canales = \Illuminate\Support\Facades\DB::table('channels')
+                                        ->join('friends', 'friends.id_friend','=', 'channels.id_user')
+                                        ->join('usuarios', 'channels.id_user','=', 'usuarios.id')
+                                        ->where('friends.id_user', session('id'))
+                                        ->whereNotIn('channels.id_user', [session('id')])
+                                        ->select('channels.*', 'usuarios.name as username')
+                                        ->paginate(3);
+                ?>
 
             <h2 id="tituloListaCanales">Listado de los canales dados de alta por el usuario</h2>
 
             <?php
-            $userid = session('id');
-            if(isset($userid)) {
-                $canales = \App\Models\Channel::where('id_user', session('id'))
-                    ->paginate(3);
-            } else {
-                $canales = \Illuminate\Support\Facades\DB::table('channels')
-                    ->join('usuarios','channels.id_user', '=', 'usuarios.id')
-                    ->select('channels.*', 'usuarios.name')
-                    ->paginate(3);
-            }
 
-            foreach ($canales->items() as $canal) : ?>
+            foreach ($canales as $canal) : ?>
                 <article class="infoCanal">
                     <div class="textoCanal">
-                        <?php if(!isset($userid)): ?>
-                            <p><strong>Autor: </strong> <?php echo $canal->name ?> </p>
-                        <?php endif; ?>
+                        <p><strong>Autor: </strong> <?php echo $canal->username ?> </p>
                         <p><strong>Canal: </strong> <?php echo $canal->channel_name ?> </p>
                         <p><strong>ID del canal: </strong> <?php echo $canal->id ?> </p>
                         <p><strong>Descripción: </strong> <?php echo $canal->description ?></p>
@@ -55,4 +50,3 @@
 
 <!-- PIE DE PÁGINA -->
 <?php include('components/footer.php'); ?>
-

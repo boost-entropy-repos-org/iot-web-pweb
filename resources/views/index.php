@@ -4,6 +4,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="/scripts/plotSensorData.js"></script>
 
+<?php include('components/notifications.php'); ?>
+
+
 <script>
     function get_num_users() {
         $('#numUsuarios').load('getNumUsers');
@@ -20,14 +23,6 @@
         setTimeout(get_sizeDB, 2000);
     }
 </script>
-
-<?php if(session('exito') != null):?>
-    <div class="alertExito">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <?php echo session('exito') ?>
-    </div>
-<?php endif; ?>
-
 
 <aside id="lateral">
     <span>Usuarios creados: <div id="numUsuarios">numusers</div></span><br>

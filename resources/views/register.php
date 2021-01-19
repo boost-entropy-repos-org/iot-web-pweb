@@ -1,12 +1,7 @@
 <!-- CABECERA -->
 <?php include('components/header.php'); ?>
+<?php include('components/notifications.php'); ?>
 
-<?php if(session('error') != null):?>
-    <div class="alertError">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <?php echo session('error') ?>
-    </div>
-<?php endif; ?>
 
 <div id="contenido">
     <form id="formularioRegistro" name="registroForm" onsubmit="return checkAge()" method="post" action="procesar_registro">
