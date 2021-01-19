@@ -98,7 +98,7 @@ class userController extends Controller {
         $newProfile = new Profile();
         $newProfile->id_user = $usuario->id;
         $newProfile->description = "Mi primer estado";
-        $newProfile->img = "/img/icono-user.svg";
+        $newProfile->img = "/img/imagen-perfil.png";
         $newProfile->save();
     }
 

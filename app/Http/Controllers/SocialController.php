@@ -13,7 +13,6 @@ class SocialController extends Controller
 {
     public function showSocialHome() {
         if(session('id') == null) {
-            return view('social');
             return redirect('/')->with('error','Debe iniciar sesión para usar la red social');
         } else {
             return view('social');
