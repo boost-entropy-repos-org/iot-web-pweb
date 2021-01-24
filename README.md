@@ -16,4 +16,10 @@ Any user can see the data received from the registered sensors and can register 
 
 The data collected is stored in a database, and can be viewed graphically on the website (using [chart.js](https://www.chartjs.org/) for plotting data).
 
+In addition, MyWebIoT includes other features such us:
+
+- eCommerce for buying sensors
+- Small social network
+
+
 
