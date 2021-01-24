@@ -6,7 +6,7 @@
 
 ## 💻 About the app
 
-MyWebIOT is a web application for retrieving and watching data of IOT devices made with **Laravel** (PHP) and **plain HTML, CSS and JS (and jQuery)**.
+MyWebIOT is a web application for retrieving and watching data of IOT devices made with **Laravel** (PHP) and **plain HTML, CSS and JS (with jQuery)**.
 
 This project was made for the lab assignment for Programación Web in GITT (ULPGC)
 
@@ -18,7 +18,7 @@ The data collected is stored in a database, and can be viewed graphically on the
 
 In addition, MyWebIoT includes other features such us:
 
-- eCommerce for buying sensors
+- eCommerce for buying sensors using Paypal
 - Small social network
 
 
